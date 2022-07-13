@@ -36,7 +36,7 @@ export default function CartScreen() {
           </MessageBox>
         ) : (
           <>
-            {cartItems.map((item) => (
+            {cartItems?.map((item) => (
               
               <div key = {item.id} className="grid-item">
               
