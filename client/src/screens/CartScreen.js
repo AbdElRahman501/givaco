@@ -30,7 +30,7 @@ export default function CartScreen() {
       <div className="grid-container">
 
         <h1>Shopping Cart</h1>
-        {cartItems.length === 0 ? (
+        {cartItems?.length === 0 ? (
           <MessageBox  variant="info">
             Cart is empty. <Link to="/">Go Shopping</Link>
           </MessageBox>
