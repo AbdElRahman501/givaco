@@ -7,7 +7,7 @@ import{ productDetailsReducer, productListReducer} from './reducers/productReduc
 
 const initialState = {
     cart: {cartItems: localStorage.getItem("cartItems")
-    ? JSON.parse(localStorage.getItem("cartItems")) 
+    ? JSON.parse(localStorage.getItem("cartItems").trim()) 
     : null },
 }
 
