@@ -24,7 +24,6 @@ function ProductScreen(){
             <div>
         {loading ? (<LoadingBox />) : error ? ( <MessageBox variant="danger">{error}</MessageBox>) : (
             <section id="item">
-          <Link to="/">back home</Link>
             <div className="grid-container">
                     
                 <div className="grid-item">
