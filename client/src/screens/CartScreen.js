@@ -75,9 +75,9 @@ export default function CartScreen() {
           </>
         )}
       <div className="grid-item">
-            <h1>total price : ({cartItems.reduce((a, c) => a + c.qty, 0)} items) : $
+            <h1>total price : ({cartItems?.reduce((a, c) => a + c.qty, 0)} items) : $
                 {cartItems.reduce((a, c) => a + c.price * c.qty, 0)}</h1>
-                <Link to={'/signin?redirect=shipping'}><button disabled={cartItems.length === 0}>Check out</button></Link>
+                <Link to={'/signin?redirect=shipping'}><button disabled={cartItems?.length === 0}>Check out</button></Link>
         </div>
     </div>
     
