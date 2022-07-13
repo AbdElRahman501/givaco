@@ -17,9 +17,9 @@ export default function CartScreen() {
     const dispatch = useDispatch();
     useEffect(() => {
       if(productId){
-        dispatch(addToCart(productId))
+        dispatch(addToCart(productId, qty))
       }
-    }, [dispatch,productId])
+    }, [dispatch,productId , qty])
 
     const removeFromCartHandler = (id) => {
       dispatch(removeFromCart(id));
