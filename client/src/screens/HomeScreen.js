@@ -25,7 +25,7 @@ const {loading , error , products} = productList
                     <h2>Don't blink</h2>      
                     <p>you will not see this again</p>
                     <button>start shoping</button>
-                    <a href="">I'm a designer</a>
+                    <a href="/#">I'm a designer</a>
                 </div>
                       
             </div>
@@ -36,7 +36,7 @@ const {loading , error , products} = productList
                 <h2>Don't blink</h2>      
                 <p>you will not see this again</p>
                 <button>start shoping</button>
-                <a href="">I'm a designe</a>
+                <a href="/#">I'm a designe</a>
             </div>
            
         </div>
@@ -44,18 +44,18 @@ const {loading , error , products} = productList
             </section>
         {loading ? (<LoadingBox />) : error ? ( <MessageBox variant="danger">{error}</MessageBox>) : (
             <section id="products">
-                <div class="grid-container category">
+                <div className="grid-container category">
                     <h1>Most Popular</h1>
-                    <a href="">See All</a>
+                    <a href="/#">See All</a>
                 </div>
-                <div class="container">
+                <div className="container">
             {products.map(product => (<Products key = {product._id} product = {product}/>))}
             </div>
-            <div class="grid-container category">
+            <div className="grid-container category">
                     <h1>New ariver</h1>
-                    <a href="">See All</a>
+                    <a href="/#">See All</a>
             </div>
-            <div class="grid-container">
+            <div className="grid-container">
             {products.map(product => (<Products key = {product._id} product = {product}/>))}
             </div>
             </section>

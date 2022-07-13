@@ -1,6 +1,5 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 
 
 function Header() {
@@ -11,15 +10,15 @@ function Header() {
          <header>
         <nav className="grid-container">
       
-        <div className="grid-item menus"> <a href=""><img className="icon" src="/images/icons/menus.png" alt="" /></a> </div>
+        <div className="grid-item menus"> <a href="/#"><img className="icon" src="/images/icons/menus.png" alt="" /></a> </div>
         <div className="grid-item">
-            <a href="/" class="brand-name">GIVACO</a>
+            <a href="/" className="brand-name">GIVACO</a>
         </div>
 
         <div className= "grid-item center">
-            <a href="/"><img class="icon"  src="/images/icons/home.png" alt="" /></a> 
-            <a href="/#"><img class="icon" src="/images//icons/profile.png" alt="" /></a>
-            <a href="/#"><img class="icon" src="/images//icons/heart.png" alt="" /></a>
+            <a href="/"><img className="icon"  src="/images/icons/home.png" alt="" /></a> 
+            <a href="/#"><img className="icon" src="/images//icons/profile.png" alt="" /></a>
+            <a href="/#"><img className="icon" src="/images//icons/heart.png" alt="" /></a>
             </div>
         <div className="grid-item">
             

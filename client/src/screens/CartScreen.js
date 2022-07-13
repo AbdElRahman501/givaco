@@ -37,7 +37,9 @@ export default function CartScreen() {
         ) : (
           <>
             {cartItems.map((item) => (
-              <div className="grid-item">
+              
+              <div key = {item.id} className="grid-item">
+              
             <div className="bag-card">
                 <img src={item.image} alt={item.title}  />
                 <div>
