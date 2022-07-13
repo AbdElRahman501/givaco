@@ -22,7 +22,7 @@ function Header() {
             </div>
         <div className="grid-item">
             
-            <a className="counter" href="/cart">{cartItems.length > 0 && (
+            <a className="counter" href="/cart">{cartItems && cartItems.length > 0  (
             <span style={{backgroundColor: 'red'}}>{cartItems.length}</span>
         )}
         <img className="icon" src="/images/icons/Cart.png" alt="" /></a>
