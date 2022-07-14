@@ -30,10 +30,12 @@ function ProductScreen(){
                     
                     <img className="card-image large" src={product.image} alt={product.title} /> 
                     
-                    <br />
-                    <a href="Product.html"><img className="card-side-image " src={product.image} alt="" /></a>
-                    <a href="Product.html"><img className="card-side-image selected" src={product.image} alt=""  /></a>
-                    <a href="Product.html"><img className="card-side-image" src={product.image} alt="" /></a>
+                    <div className="card-side-image">
+                        <a href="/#"><img className="side-image " src={product.image} alt="" /></a>
+                    <a href="/#"><img className="side-image selected" src={product.image} alt=""  /></a>
+                    <a href="/#"><img className="side-image" src={product.image} alt="" /></a>
+                    </div>
+                    
                 </div>
                 <div className="grid-item">
                     <h1 className="title white-text">{product.title}</h1>
@@ -53,10 +55,10 @@ function ProductScreen(){
                         <a className="black-box selected" href=""></a>
                     </div>
                     <div className="sizing" >
-                        <a className="" href="">M</a>
-                        <a className="" href="">L</a>
-                        <a className="selected" href="">XL</a>
-                        <a className="" href="">2XL</a>
+                        <a className="" href="/#">M</a>
+                        <a className="" href="/#">L</a>
+                        <a className="selected" href="/#">XL</a>
+                        <a className="" href="/#">2XL</a>
                     </div>
                     <p className="avilability">avilapility :{product.inStoke>0 ?<span className="success"> In Stoke</span> : <span className="failed"> Out Of Stoke</span> }</p>
                     <hr />

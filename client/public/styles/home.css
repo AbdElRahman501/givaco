@@ -145,8 +145,11 @@ a .icon:hover{
     font-family: 'Alata', sans-serif;
     font-size: 1.3rem;
 }
-.counter span{
+.counter{
     position: relative;
+}
+.counter span{
+    position: absolute;
     background: rgb(170, 170, 170);
     width: 1rem;
     height: 1rem;
@@ -155,8 +158,8 @@ a .icon:hover{
     display: flex;
     align-items: center;
     justify-content: center;
-    top: .5rem;
-    right: 0.1rem;
+    bottom: 15px;
+    right: 10px;
 
 }
 .grid-item.center {
@@ -197,6 +200,7 @@ a .icon:hover{
 /* start heading */
 #heading{
     background-color: #141517;
+    position: relative;
 }
 #heading img{
     width: 100%; 
@@ -335,18 +339,19 @@ a .icon:hover{
     position: sticky;
     top: 0;
 }
+
 .card{
     margin: 1rem;
+    position: relative;
 }
 
 .card .heart-icon{
+    top: 15px;
+    right: 16px;
     display: block;
-    position: relative;
-    bottom: 22rem;
-    left: 13rem;
+    position: absolute;
 }
-.card a{
-    display: contents;}
+
 .card-image{
     width: 200px;
     padding: 1rem;
@@ -360,25 +365,24 @@ a .icon:hover{
     filter: drop-shadow(0px 10px 5px rgba(49, 49, 49, 0.5));
 
 }
+.info{
+position: relative;
+}
 .card .title{
-    position: relative;
-    bottom: 1.2rem;
     font-size: 1rem;
-    margin: 0%;
+    margin: 2px;
     color: #fff
 }
 .card .content{
-    position: relative;
-    bottom: 1.2rem;
     font-size: 0.8rem;
-    margin: 0%;
+    margin: 2px 0;
     color: rgb(180, 180, 180);
 }
 .card button{
     line-height: normal;
-    position: relative;
-    bottom: 1.7rem;
-    left: 13.6rem;
+    position: absolute;
+    right: 5px;
+    top: 1rem;
     padding: 0.3rem 0.3rem 0.2rem;
     border-radius: 50%;
 }
@@ -386,24 +390,19 @@ a .icon:hover{
     filter: none
 }
 .card .star-icon{
-    display: block;
-    position: relative;
-    bottom: 3.4rem;
-    width: 20px;
-    height: 20px;
+    display: inline-block;
+    width: 18px;
+    height: 18px;
 }
 .card .rating{
     display: inline-block;
-    position: relative;
-    bottom: 5.2rem;
-    left: 2rem;
+    margin: 0 5px;
     font-size: 0.8rem;
 }
 .card .price{
     display: block;
-    position: relative;
-    bottom: 6.5rem;
     font-size: 1rem;
+    margin: 0.5rem 0;
     color: #fff;
 }
 
@@ -429,33 +428,18 @@ a .icon:hover{
     }
     .grid-container .card{
         margin: 0.2rem;
+       
     }
     .grid-container .card-image{
         width: 150px;
     }
-    .grid-container .heart-icon{
-        bottom: 17.4rem;
-        left: 9.8rem;
-    }
-    .grid-container .card button{
-        bottom: 1.7rem;
-        left: 10rem;
-    }
+    
   
 
 }
 @media screen and (max-width: 390px) {
     .grid-container .card-image{
         width: 220px;
-    }
-    .grid-container .heart-icon{
-        bottom: 24.8rem;
-        left: 14.5rem;
-    }
-   
-    .grid-container .card button{
-        bottom: 1.7rem;
-        left: 15rem;
     }
  }
 
@@ -471,6 +455,9 @@ a .icon:hover{
 #item .grid-container{
     justify-content: center;
     align-items: unset;
+}
+#item .grid-item{
+    position: relative;
 }
 #item .grid-item:nth-child(2){
     margin-bottom: 10rem;
@@ -571,19 +558,21 @@ a .icon:hover{
 .card-image.large{
     width: 70%;
 }
-
-.card-side-image{
+.side-image{
     margin: 10px;
-    display: block;
-    position: relative;
-    bottom: 47.5rem;
-    left: 76%;
-    width: 10%;
+    width: 70px;
     border-radius: 10px;
     transition: all .5s ease-in-out;
 }
+.card-side-image{
+    display: inline-grid;
+    position: absolute; 
+}
+.card-side-image a{
+    display: contents;
+}
 
-.card-side-image:hover{
+.side-image:hover{
     transform: scale(1.2);
     border: 1px solid #e4e4e4;
 
@@ -596,8 +585,10 @@ a .icon:hover{
     }
     .card-side-image{
         display: initial;
-        bottom: 0rem;
-        left: 0rem;
+        position: unset;
+    }
+    .side-image{
+        width: 50px;
     }
     #item a.prev-icon{
         top: 21rem;
