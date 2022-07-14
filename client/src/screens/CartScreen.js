@@ -27,25 +27,27 @@ export default function CartScreen() {
 
     return (
       <section id="bag">
+      <h1 style={{margin :"0% 1rem"}}>Shopping Cart</h1>
       <div className="grid-container">
 
-        <h1>Shopping Cart</h1>
+        
         {cartItems?.length === 0 ? (
           <MessageBox  variant="info">
             Cart is empty. <Link to="/">Go Shopping</Link>
           </MessageBox>
         ) : (
           <>
+          <div  className="grid-item">
             {cartItems?.map((item) => (
               
-              <div key = {item.id} className="grid-item">
               
-            <div className="bag-card">
-                <img src={item.image} alt={item.title}  />
+              
+            <div key = {item.id} className="bag-card">
+                <img className='item-img' src={item.image} alt={item.title}  />
                 <div>
                 <h1 className="title" >Over size T-shirt</h1>
                 <span className="colors" ><i className="white-box" href=""></i> white | size = M</span>
-                <p className="avilability"> In Stok</p>
+                <p className="avilability access"> In Stok</p>
                 <h2 className="price white-text">{item.price}</h2>
                 <select
                       value={item.qty}
@@ -62,21 +64,21 @@ export default function CartScreen() {
                       ))}
                     </select>
                 </div>
-                    <button onClick={() => removeFromCartHandler(item.product)} ><img className="icon" src="/images/icons/fi-rr-arrow-small-right.png" alt="" /></button>
+                    <button className='delet' onClick={() => removeFromCartHandler(item.product)} >
+                    <img class="icon" src="/images/icons/gg_trash-empty.png" alt="" />
+                    </button>
                     
-                    
-                
-                
-
             </div>
 
-        </div>
+        
             ))}
+            </div>
           </>
         )}
-      <div className="grid-item">
-            <h1>total price : ({cartItems?.reduce((a, c) => a + c.qty, 0)} items) : $
-                {cartItems?.reduce((a, c) => a + c.price * c.qty, 0)}</h1>
+      <div className="grid-item check-out">
+            <h6>total price : </h6>
+            <p class="white-text">({cartItems?.reduce((a, c) => a + c.qty, 0)} items) : $
+                {cartItems?.reduce((a, c) => a + c.price * c.qty, 0)}</p>
                 <Link to={'/signin?redirect=shipping'}><button disabled={cartItems?.length === 0}>Check out</button></Link>
         </div>
     </div>
