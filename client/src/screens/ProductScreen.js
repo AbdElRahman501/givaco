@@ -8,14 +8,21 @@ import MessageBox from "../components/MessageBox";
 function ProductScreen(){
     const dispatch = useDispatch();
     const productId = useParams()._id;
+
     const [qty , setQty] = useState(1);
+    const [imageId , setImageId] = useState("1")
+    const [colorId , setColorId] = useState("1")
+    const [ sizeId , setsizeId] = useState("1")
+
+
+
     const productDetalis = useSelector( state => state.productDetalis);
     const {loading, error, product} = productDetalis    
     useEffect(() => {
         dispatch(detailsProduct(productId));
     },[dispatch,productId ]);
     
-
+    const {sideImages , sizes , colors } = product
     
     if (!product) {
         return <div className="alert alert-danger">product not found</div>
@@ -31,10 +38,12 @@ function ProductScreen(){
                     <img className="card-image large" src={product.image} alt={product.title} /> 
                     
                     <div className="card-side-image">
-                        <a href="/#"><img className="side-image " src={product.image} alt="" /></a>
-                    <a href="/#"><img className="side-image selected" src={product.image} alt=""  /></a>
-                    <a href="/#"><img className="side-image" src={product.image} alt="" /></a>
-                    </div>
+                    {sideImages.map(({url,id}) => {
+                     return id === imageId?
+                    <button key={id} onClick={() => setImageId(id)}><img className="side-image selected" src={url} alt={product.title} /></button> :
+                    <button key={id} onClick={() => setImageId(id)}><img className="side-image " src={url} alt={product.title} /></button>
+                    }) }
+                           </div>
                     
                 </div>
                 <div className="grid-item">
@@ -51,14 +60,20 @@ function ProductScreen(){
                         </div>
                     <h2 className="price white-text">{product.price}</h2>
                     <div className="colors" >
-                        <a className="white-box " href=""></a>
-                        <a className="black-box selected" href=""></a>
+                    {colors.map(({color,id}) => {
+                        return id === colorId?
+                        <button key={id} onClick={() => setColorId(id)}  ><span className="color-box selected" style={{backgroundColor:color}}></span></button> :
+                        <button key={id} onClick={() => setColorId(id)}  ><span className="color-box" style={{backgroundColor:color}}></span></button>
+                        
+                    })}
                     </div>
                     <div className="sizing" >
-                        <a className="" href="/#">M</a>
-                        <a className="" href="/#">L</a>
-                        <a className="selected" href="/#">XL</a>
-                        <a className="" href="/#">2XL</a>
+                    {sizes.map(({size,id}) => {
+                        return id === sizeId?
+                        <button key={id} onClick={() => setsizeId(id)}  ><span className="selected" >{size}</span></button> :
+                        <button key={id} onClick={() => setsizeId(id)}  ><span className="" >{size}</span></button>
+                        
+                    })}
                     </div>
                     <p className="avilability">avilapility :{product.inStoke>0 ?<span className="success"> In Stoke</span> : <span className="failed"> Out Of Stoke</span> }</p>
                     <hr />
@@ -80,7 +95,7 @@ function ProductScreen(){
                             </select>
                        <div>
 
-                        <Link to={"/cart/"+productId+"?qty="+qty}><button className="primary block">add to bag</button>
+                        <Link to={"/cart/"+productId+"?qty="+qty+"&color="+colorId+"&size="+sizeId}><button className="primary block">add to bag</button>
                         </Link>
                         <hr />
                         <Link to={"/cart/"+productId+"?qty="+qty}><button>Check Out</button></Link>

@@ -460,6 +460,9 @@ position: relative;
 #item .grid-item{
     position: relative;
 }
+#item .grid-item:nth-child(1) button{
+    display: contents;
+}
 #item .grid-item:nth-child(2){
     margin-bottom: 10rem;
     max-width: 400px;
@@ -512,34 +515,31 @@ position: relative;
     width: 50%;
 
 }
-.colors a{
-    margin: 5px;
-    transition: all .5s ease-in-out;
-}
-.colors a:hover{
-    transform: scale(1.2);
-    border: 2px solid #49484c;
-}
 .qty{
     display: inline-block;
     margin: 3% 23% 13% 0%;
     font-size: 0.8rem;
 }
+#item .colors button{
+    display: contents;
+}
 
-
-.colors .white-box{
+.colors .color-box{
+    margin: 5px;
+    transition: all .5s ease-in-out;
     width: 1rem;
     height: 1rem;
-    background-color: #fff;
     border-radius: 50%;
 }
-.colors .black-box{
-    width: 1rem;
-    height: 1rem;
-    background-color: #000;
-    border-radius: 50%;
+.colors .color-box:hover{
+    background-color: #484a4c;
+    border: 2px solid #999;
+    transform: scale(1.2);
 }
-.sizing a{
+#item .sizing button{
+    display: contents;
+}
+.sizing span{
     margin: 2px;
     display: flex;
     align-items: center;
@@ -551,7 +551,7 @@ position: relative;
     border-radius: 50%;
     transition: all .5s ease-in-out;
 }
-.sizing a:hover{
+.sizing span:hover{
     background-color: #484a4c;
     border: 2px solid #999;
     transform: scale(1.2);

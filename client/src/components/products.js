@@ -10,12 +10,12 @@ function Products(props){
             <div className="info">
             <h2 className="title">{title}</h2>
             <p className="content">{content}</p>
-            <Link to={"/cart/"+_id+"?qty=1"}><button> <img className="icon" src="images/icons/fi-rr-arrow-small-right.png" alt="" /> </button></Link>
+            <Link to={"/cart/"+_id+"?qty=1&color=1&size=1"}>
+            <button> <img className="icon" src="images/icons/fi-rr-arrow-small-right.png" alt="" /> </button></Link>
             <img className="icon star-icon" src="images/icons/Star.png" alt="" /> 
             <p className="rating"> {rating} | {numberOfRating}</p>
             <h3 className="price">{price} EGP</h3>
             </div>
-            
     </div> 
     )
 }

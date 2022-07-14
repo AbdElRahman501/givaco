@@ -10,6 +10,10 @@ export default function CartScreen() {
     const {search} = useLocation();
     const qtyInUrl = new URLSearchParams(search).get('qty');
     const qty = qtyInUrl?Number(qtyInUrl):1;
+    const colorInUrl = new URLSearchParams(search).get('color');
+    const colorId = colorInUrl?Number(colorInUrl):'1';
+    const sizeInUrl = new URLSearchParams(search).get('size');
+    const sizeId = sizeInUrl?Number(sizeInUrl):'1';
     
     const cart = useSelector((state) => state.cart);
     const { cartItems } = cart;
@@ -17,9 +21,9 @@ export default function CartScreen() {
     const dispatch = useDispatch();
     useEffect(() => {
       if(productId){
-        dispatch(addToCart(productId, qty))
+        dispatch(addToCart(productId, qty,colorId,sizeId))
       }
-    }, [dispatch,productId , qty])
+    }, [dispatch,productId , qty,colorId,sizeId])
 
     const removeFromCartHandler = (id) => {
       dispatch(removeFromCart(id));
@@ -43,17 +47,18 @@ export default function CartScreen() {
               
               
             <div key = {item.id} className="bag-card">
-                <img className='item-img' src={item.image} alt={item.title}  />
+            <Link to={"/products/"+item.product}><img className='item-img' src={item.image} alt={item.title} /></Link>
                 <div>
-                <h1 className="title" >Over size T-shirt</h1>
-                <span className="colors" ><i className="white-box" href=""></i> white | size = M</span>
+                <Link to={"/products/"+item.product}><h1 className="title" >Over size T-shirt</h1> </Link>
+                
+                <span className="colors" ><i className="white-box" href=""></i> {item.color} | size = {item.size}</span>
                 <p className="avilability access"> In Stok</p>
-                <h2 className="price white-text">{item.price}</h2>
+                <h2 className="price white-text">{item.price} EGP </h2>
                 <select
                       value={item.qty}
                       onChange={(e) =>
                         dispatch(
-                          addToCart(item.product, Number(e.target.value))
+                          addToCart(item.product, Number(e.target.value ),colorId,sizeId)
                         )
                       }
                     >
@@ -65,7 +70,7 @@ export default function CartScreen() {
                     </select>
                 </div>
                     <button className='delet' onClick={() => removeFromCartHandler(item.product)} >
-                    <img class="icon" src="/images/icons/gg_trash-empty.png" alt="" />
+                    <img className="icon" src="/images/icons/gg_trash-empty.png" alt="" />
                     </button>
                     
             </div>
@@ -77,7 +82,7 @@ export default function CartScreen() {
         )}
       <div className="grid-item check-out">
             <h6>total price : </h6>
-            <p class="white-text">({cartItems?.reduce((a, c) => a + c.qty, 0)} items) : $
+            <p className="white-text">({cartItems?.reduce((a, c) => a + c.qty, 0)} items) : $
                 {cartItems?.reduce((a, c) => a + c.price * c.qty, 0)}</p>
                 <Link to={'/signin?redirect=shipping'}><button disabled={cartItems?.length === 0}>Check out</button></Link>
         </div>
