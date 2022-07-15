@@ -31,7 +31,9 @@ export default function CartScreen() {
 
     return (
       <section id="bag">
-      <Link to={"/products/"+productId} className='go-back'><img className='icon revers' src='/images/icons/eva_arrow-back-outline.png' ></img>  Shopping Cart</Link>
+      <Link to={productId? "/products/"+productId : "/"} className='go-back'>
+      <img className='icon revers' src='/images/icons/eva_arrow-back-outline.png' ></img>
+      Shopping Cart</Link>
       <div className="grid-container">
 
         

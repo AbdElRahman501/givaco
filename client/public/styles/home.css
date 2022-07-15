@@ -100,7 +100,33 @@ button:hover{
     background: linear-gradient(180.71deg, #484a4c -52.8%, rgb(0 0 0 / 41%) 211.15%);
     border-radius: 18px;
     color: #000;
-} 
+}
+button.ancher{
+    display: contents;
+    
+}
+button .icon{
+    filter: none;
+}
+button .icon:hover{
+    filter:invert(1) 
+    sepia(4%) 
+    saturate(768%) 
+    hue-rotate(167deg) 
+    brightness(700%) 
+    contrast(92%);
+}
+button .icon.revers{
+    filter: none;
+}
+button .icon.revers:hover{
+    filter:invert(1) 
+    sepia(4%) 
+    saturate(768%) 
+    hue-rotate(167deg) 
+    brightness(700%) 
+    contrast(92%)
+}
 a{
     text-decoration: none;
     color: aliceblue;
@@ -131,7 +157,12 @@ a .icon.revers{
     filter: none
 }
 a .icon.revers:hover{
-    filter:none
+    filter:invert(1) 
+    sepia(4%) 
+    saturate(768%) 
+    hue-rotate(167deg) 
+    brightness(700%) 
+    contrast(92%)
 }
 
 a .icon:hover{
@@ -410,9 +441,6 @@ position: relative;
     top: 1rem;
     padding: 0.3rem 0.3rem 0.2rem;
     border-radius: 50%;
-}
-.card button .icon{
-    filter: none
 }
 
 .card .rating{

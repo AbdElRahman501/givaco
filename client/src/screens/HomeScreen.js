@@ -1,20 +1,40 @@
-import React, { useEffect} from "react";
+import React, { useEffect, useState} from "react";
 import Products from "../components/products"
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
 import { useDispatch, useSelector } from "react-redux";
 import { listProducts } from "../actions/productsActions";
+import { addToLiked, removeFromLiked } from "../actions/likedAction";
 
 
 function HomeScreen(){
 const dispatch = useDispatch();    
 const productList = useSelector( state => state.productList);
 
+const [productId, setProductId] = useState("")
+
+const liked = useSelector((state) => state.liked);
+const { likedItems } = liked;
+
 const {loading , error , products} = productList
+
     useEffect(() =>{
         dispatch(listProducts())
     },[dispatch])
 
+
+    useEffect(() => {
+        if(productId){
+          dispatch(addToLiked(productId))
+        }
+      }, [dispatch,productId])
+function removeFromLikedHandler(id) {
+        dispatch(removeFromLiked(id));
+      };
+
+function addLiked(id){
+   setProductId(id)
+};
     return (
         <div>
         <section id="heading">
@@ -44,19 +64,32 @@ const {loading , error , products} = productList
             </section>
         {loading ? (<LoadingBox />) : error ? ( <MessageBox variant="danger">{error}</MessageBox>) : (
             <section id="products">
+            {likedItems.length>0 ? <div>
+                <div className="grid-container category">
+                    <h1>Liked items</h1>
+                    <a href="/#">See All</a>
+                </div>
+                <div className="container">
+            {likedItems.map(product => (<Products 
+            key = {product._id} addToLiked={addLiked} product = {product} removeFromLiked = {removeFromLikedHandler}
+
+            /> ))}
+            </div>
+            </div>:''}
+            
                 <div className="grid-container category">
                     <h1>Most Popular</h1>
                     <a href="/#">See All</a>
                 </div>
                 <div className="container">
-            {products.map(product => (<Products key = {product._id} product = {product}/>))}
+            {products.map(product => (<Products key = {product._id} addToLiked={addLiked} product = {product}/>))}
             </div>
             <div className="grid-container category">
                     <h1>New ariver</h1>
                     <a href="/#">See All</a>
             </div>
             <div className="grid-container">
-            {products.map(product => (<Products key = {product._id} product = {product}/>))}
+            {products.map(product => (<Products key = {product._id} addToLiked={addLiked} product = {product}/>))}
             </div>
             </section>
         )}

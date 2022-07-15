@@ -1,0 +1,2 @@
+export const LIKED_ADD_ITEM = 'LIKED_ADD_ITEM'
+export const LIKED_REMOVE_ITEM = 'LIKED_REMOVE_ITEM';
