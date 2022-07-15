@@ -31,7 +31,7 @@ export default function CartScreen() {
 
     return (
       <section id="bag">
-      <h1 style={{margin :"0% 1rem"}}>Shopping Cart</h1>
+      <Link to={"/products/"+productId} className='go-back'><img className='icon revers' src='/images/icons/eva_arrow-back-outline.png' ></img>  Shopping Cart</Link>
       <div className="grid-container">
 
         
@@ -80,13 +80,15 @@ export default function CartScreen() {
             </div>
           </>
         )}
-      <div className="grid-item check-out">
-            <h6>total price : </h6>
+      <div className="grid-item">
+        <div class="check-out">
+          <h6>total price : </h6>
             <p className="white-text">({cartItems?.reduce((a, c) => a + c.qty, 0)} items) : $
                 {cartItems?.reduce((a, c) => a + c.price * c.qty, 0)}</p>
                 <Link to={'/signin?redirect=shipping'}><button disabled={cartItems?.length === 0}>Check out</button></Link>
-        </div>
-    </div>
+        </div>    
+      </div>
+  </div>
     
 </section>
       );

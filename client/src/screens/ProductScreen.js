@@ -31,6 +31,8 @@ function ProductScreen(){
             <div>
         {loading ? (<LoadingBox />) : error ? ( <MessageBox variant="danger">{error}</MessageBox>) : (
             <section id="item">
+            <Link to={"/"} className='go-back'><img className='icon revers' src='/images/icons/eva_arrow-back-outline.png' ></img>  Product page</Link>
+
             <div className="grid-container">
                     
                 <div className="grid-item">
