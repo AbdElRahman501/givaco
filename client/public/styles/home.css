@@ -359,6 +359,16 @@ a .icon:hover{
     margin: 1rem;
     position: relative;
 }
+.card .stock{
+    left: 6px;
+    color: #fff;
+    display: block;
+    margin: 0;
+    font-size: 0.6rem;
+    background: #7f7e7ef2;
+    position: absolute;
+    top: 10px;
+}
 
 .card .heart-icon{
     top: 15px;
