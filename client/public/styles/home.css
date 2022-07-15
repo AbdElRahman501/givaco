@@ -404,16 +404,21 @@ position: relative;
 .card button .icon{
     filter: none
 }
-.card .star-icon{
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-}
+
 .card .rating{
+    display: flex;
+    align-items: center;
+}
+.star-icon{
+    padding-right: 5px;
     display: inline-block;
+    width: 18px;
+    height: 18px;
+}
+.card .rating p{
     margin: 0%;
-    left: 2rem;
     font-size: 0.6rem;
+
 }
 .card .price{
     display: block;
@@ -511,6 +516,9 @@ position: relative;
     display: flex;
     align-items: center;
 
+}
+.rating i{
+    color:  #ffc567ad;
 }
 .rating .star-icon{
     width: 15px;
