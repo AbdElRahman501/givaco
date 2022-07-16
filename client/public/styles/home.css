@@ -105,28 +105,7 @@ button.ancher{
     display: contents;
     
 }
-button .icon{
-    filter: none;
-}
-button .icon:hover{
-    filter:invert(1) 
-    sepia(4%) 
-    saturate(768%) 
-    hue-rotate(167deg) 
-    brightness(700%) 
-    contrast(92%);
-}
-button .icon.revers{
-    filter: none;
-}
-button .icon.revers:hover{
-    filter:invert(1) 
-    sepia(4%) 
-    saturate(768%) 
-    hue-rotate(167deg) 
-    brightness(700%) 
-    contrast(92%)
-}
+
 a{
     text-decoration: none;
     color: aliceblue;
@@ -145,7 +124,7 @@ li{
     height: 25px;
 }
 
-a .icon{
+a .icon,.ancher .icon{
     filter:invert(1) 
     sepia(4%) 
     saturate(768%) 
@@ -153,10 +132,10 @@ a .icon{
     brightness(700%) 
     contrast(92%);
 }
-a .icon.revers{
+a .icon.revers,.ancher .icon.revers{
     filter: none
 }
-a .icon.revers:hover{
+a .icon.revers:hover,.ancher .icon.revers:hover{
     filter:invert(1) 
     sepia(4%) 
     saturate(768%) 
@@ -165,7 +144,7 @@ a .icon.revers:hover{
     contrast(92%)
 }
 
-a .icon:hover{
+a .icon:hover,.ancher .icon:hover{
     filter: none
 
 }
@@ -224,13 +203,16 @@ a .icon:hover{
 }
 .grid-item.center.expand {
     z-index: 10;
+    gap: 33px;
     display: inline-grid;
     position: absolute;
-    top: 70px;
-    left: -13px;
-    padding: 4rem 10rem 4rem 4rem;
-    border-radius: 20px;
-    background-color: #1a1a1a;
+    top: 71px;
+    width: 80%;
+    height: 400px;
+    left: 0px;
+    padding: 0 1rem;
+    border-radius: 0 20px 20px 0;
+    background-color: #141517;
 }
 @media screen and (max-width: 768px) {
     .menus{
@@ -281,6 +263,11 @@ a .icon:hover{
 }
 .fornt-image{
     z-index: 1;
+}
+@media screen and (min-width:831px) and (max-width:1219px) {
+    .fornt-image{
+        width: 60%;
+    }
 }
 
 .content-1{
@@ -352,6 +339,7 @@ a .icon:hover{
 /* start products */
 #products{
     background-color: #1a1a1a;
+    min-height: 100vh;
 }
 #products .main-pic{
     width: 200px;
@@ -570,13 +558,7 @@ position: relative;
     display: flex;
     height: 3rem;
 }
-.avilability{
-    font-size: 15px;
-    display: flex;
-    justify-content: space-between;
-    width: 50%;
 
-}
 .qty{
     display: inline-block;
     margin: 3% 23% 13% 0%;

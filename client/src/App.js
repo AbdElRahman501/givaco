@@ -5,6 +5,7 @@ import ProductScreen from "./screens/ProductScreen";
 import HomeScreen from "./screens/HomeScreen";
 import Header from "./components/heading";
 import CartScreen from "./screens/CartScreen";
+import LikedScreen from "./screens/likedScreen";
 
 
 function App() {
@@ -17,6 +18,7 @@ return (
       <Route path="/cart" element={<CartScreen />} />
       <Route path="/" element={<HomeScreen />} />
       <Route path="products/:_id" element={<ProductScreen />} />
+      <Route path="/Favorite" element={<LikedScreen />} />
   </Routes>
   <Footer />
   </div>

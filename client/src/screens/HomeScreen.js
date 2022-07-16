@@ -65,32 +65,19 @@ function addLiked(id){
             </section>
         {loading ? (<LoadingBox />) : error ? ( <MessageBox variant="danger">{error}</MessageBox>) : (
             <section id="products">
-            {likedItems.length>0 ? <div>
-                <div className="grid-container category">
-                    <h1>Liked items</h1>
-                    <a href="/#">See All</a>
-                </div>
-                <div className="container">
-            {likedItems.map(product => (<Products 
-            key = {product._id} addToLiked={addLiked} product = {product} removeFromLiked = {removeFromLikedHandler}
-
-            /> ))}
-            </div>
-            </div>:''}
-            
                 <div className="grid-container category">
                     <h1>Most Popular</h1>
                     <a href="/#">See All</a>
                 </div>
                 <div className="container">
-            {products.map(product => (<Products key = {product._id} addToLiked={addLiked} product = {product}/>))}
+            {products.map(product => (<Products key = {product._id} addToLiked={addLiked} product = {product} theLikedItems = {likedItems} removeFromLiked = {removeFromLikedHandler} />))}
             </div>
             <div className="grid-container category">
                     <h1>New ariver</h1>
                     <a href="/#">See All</a>
             </div>
             <div className="grid-container">
-            {products.map(product => (<Products key = {product._id} addToLiked={addLiked} product = {product}/>))}
+            {products.map(product => (<Products key = {product._id} addToLiked={addLiked} product = {product} theLikedItems = {likedItems} removeFromLiked = {removeFromLikedHandler} />))}
             </div>
             </section>
         )}
