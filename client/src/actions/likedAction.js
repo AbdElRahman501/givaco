@@ -26,5 +26,5 @@ export const addToLiked = (productId) => async(dispatch , getState) => {
 
 export const removeFromLiked = (productId) => (dispatch, getState) => {
     dispatch({ type: LIKED_REMOVE_ITEM, payload: productId });
-    localStorage.setItem('likedItems', JSON.stringify(getState().cart.likedItems));
+    localStorage.setItem('likedItems', JSON.stringify(getState().liked.likedItems));
   };

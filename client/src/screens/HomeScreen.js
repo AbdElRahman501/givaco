@@ -11,7 +11,7 @@ function HomeScreen(){
 const dispatch = useDispatch();    
 const productList = useSelector( state => state.productList);
 
-const [productId, setProductId] = useState("")
+const [productId, setProductId] = useState();
 
 const liked = useSelector((state) => state.liked);
 const { likedItems } = liked;
@@ -30,6 +30,7 @@ const {loading , error , products} = productList
       }, [dispatch,productId])
 function removeFromLikedHandler(id) {
         dispatch(removeFromLiked(id));
+        setProductId("");
       };
 
 function addLiked(id){
