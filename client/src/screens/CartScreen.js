@@ -25,8 +25,8 @@ export default function CartScreen() {
       }
     }, [dispatch,productId , qty,colorId,sizeId])
 
-    const removeFromCartHandler = (id) => {
-      dispatch(removeFromCart(id));
+    const removeFromCartHandler = (item) => {
+      dispatch(removeFromCart(item));
     };
 
     return (
@@ -44,11 +44,11 @@ export default function CartScreen() {
         ) : (
           <>
           <div  className="grid-item">
-            {cartItems?.map((item) => (
+            {cartItems?.map((item , index) => (
               
               
               
-            <div key = {item.id} className="bag-card">
+            <div key = {index} className="bag-card">
             <Link to={"/products/"+item.product}><img className='item-img' src={item.image} alt={item.title} /></Link>
                 <div>
                 <Link to={"/products/"+item.product}><h1 className="title" >Over size T-shirt</h1> </Link>
@@ -60,7 +60,7 @@ export default function CartScreen() {
                       value={item.qty}
                       onChange={(e) =>
                         dispatch(
-                          addToCart(item.product, Number(e.target.value ),colorId,sizeId)
+                          addToCart(item.product, Number(e.target.value ),item.colorId,item.sizeId)
                         )
                       }
                     >
@@ -69,9 +69,9 @@ export default function CartScreen() {
                           {x + 1}
                         </option>
                       ))}
-                    </select>
-                </div>
-                    <button className='delet' onClick={() => removeFromCartHandler(item.product)} >
+                    </select> 
+                  </div>
+                    <button className='delet' onClick={() => removeFromCartHandler(item)} >
                     <img className="icon" src="/images/icons/gg_trash-empty.png" alt="" />
                     </button>
                     

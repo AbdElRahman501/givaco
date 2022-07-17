@@ -4,8 +4,8 @@ import { CART_ADD_ITEM, CART_REMOVE_ITEM } from "../constants/cartConstant";
 export const addToCart = (productId , qty,colorId,sizeId) => async(dispatch , getState) => {
  const {data} = await Axios.get('/api/products/'+productId);
  
- const color = data.colors.find(x => x.id === colorId.toString()).color
- const size = data.sizes.find(x => x.id === sizeId.toString()).size
+ const colors = data.colors.find(x => x.id === colorId.toString())
+ const sizes = data.sizes.find(x => x.id === sizeId.toString())
  dispatch({
     type: CART_ADD_ITEM,
     payload:{
@@ -20,8 +20,10 @@ export const addToCart = (productId , qty,colorId,sizeId) => async(dispatch , ge
         image : data.image,
         inStoke : data.inStoke,
         product: data._id,
-        color : color,
-        size : size,
+        color : colors.color,
+        colorId : colors.id,
+        size : sizes.size,
+        sizeId : sizes.id,
         qty,
 
     }
@@ -29,7 +31,14 @@ export const addToCart = (productId , qty,colorId,sizeId) => async(dispatch , ge
  localStorage.setItem("cartItems", JSON.stringify(getState().cart.cartItems));
 };
 
-export const removeFromCart = (productId) => (dispatch, getState) => {
-    dispatch({ type: CART_REMOVE_ITEM, payload: productId });
+export const removeFromCart = (item) => (dispatch, getState) => {
+    dispatch({ 
+    type: CART_REMOVE_ITEM, 
+    payload: {
+        id : item.id,
+        color : item.color,
+        size : item.size
+    }  
+});
     localStorage.setItem('cartItems', JSON.stringify(getState().cart.cartItems));
   };

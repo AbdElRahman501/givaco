@@ -520,10 +520,18 @@ position: relative;
   
 
 }
+@media screen and (max-width: 590px) {
+
+.grid-container .card:nth-child(odd) {
+    position: relative;
+    top: 6rem;
+}
+}
 @media screen and (max-width: 390px) {
     .grid-container .card-image{
         width: 220px;
     }
+    
  }
 
 /* ends products */
