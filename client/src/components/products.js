@@ -11,7 +11,7 @@ function Products(props){
    const isLiked = props.theLikedItems?.find(x => x._id === _id)? true : false || props.product.isLiked? true : false
     return (
     <div className="card">
-        <Link to={"products/"+_id}><img className="card-image" src={image} alt={title}  /></Link>
+        <Link to={"/products/"+_id}><img className="card-image" src={image} alt={title}  /></Link>
         {inStoke === 0 ?<p className="stock">out of stock</p> : "" }
             { isLiked? <button onClick={() => {props.removeFromLiked(_id)}} className="ancher">     
             <img className="icon revers heart-icon" src="/images/icons/icons8-heart-50fill.png" alt="" />

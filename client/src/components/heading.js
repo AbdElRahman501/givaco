@@ -1,9 +1,23 @@
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { listProducts } from "../actions/productsActions";
+import LoadingBox from "./LoadingBox";
+import MessageBox from "./MessageBox";
 
 
 function Header() {
+    // for search engine
+    const [query, setQuery] = useState("")
+    const productList = useSelector( state => state.productList);
+    const {loading , error , products} = productList
+    const dispatch = useDispatch();    
+
+    useEffect(() =>{
+        dispatch(listProducts())
+    },[dispatch])
+
+
     const cart = useSelector(state => state.cart);
     const {cartItems} = cart 
     const [isSlected , setSelected] = useState("home")
@@ -24,6 +38,30 @@ function Header() {
 
         <div className= {isTogled?"grid-item center expand":"grid-item center"} >
         
+        {isTogled?
+            <div className="search-bar">
+            <input placeholder="Enter Post Title" onChange={event => setQuery(event.target.value)} />
+            {loading ? (<LoadingBox />) : error ? ( <MessageBox variant="danger">{error}</MessageBox>) : (
+            <ul>
+            {products.filter(post => {
+             if (query === '') {
+               return "";
+             } else if (post.title.toLowerCase().includes(query.toLowerCase()) 
+             || post.category.toLowerCase().includes(query.toLowerCase()) || post.keywords.toLowerCase().includes(query.toLowerCase()) ) {
+               return post;
+             }
+             }).map((product,index) => (<li key={index} onClick={() => {setQuery("") ; setTogled(false)}}>
+             <Link to={"/shope/"+product.category}>
+              {product.category}
+             </Link></li>))
+            }
+           </ul>
+            )}
+            
+            </div>
+           
+      
+        :""}
         {isSlected === "home"
         ? <Link to={"/"}><img className="icon"  src="/images/icons/home.png" alt="" />{isTogled?"Home":""}</Link> 
         :<Link to={"/"} onClick={() => {setSelected("home");setTogled(false)}}><img className="icon"  src="/images/icons/homestrok.png" alt="" /></Link>

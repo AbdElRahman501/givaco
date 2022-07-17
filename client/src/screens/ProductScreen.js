@@ -10,9 +10,10 @@ function ProductScreen(){
     const productId = useParams()._id;
 
     const [qty , setQty] = useState(1);
-    const [imageId , setImageId] = useState("1")
+    const [imageId , setImageId] = useState("")
     const [colorId , setColorId] = useState("1")
     const [ sizeId , setsizeId] = useState("1")
+    const [homeImage , setHomeImage] = useState("")
 
 
 
@@ -38,13 +39,13 @@ function ProductScreen(){
                     
                 <div className="grid-item">
                     
-                    <img className="card-image large" src={product.image} alt={product.title} /> 
+                    <img className="card-image large" src={homeImage || product.image } alt={product.title} /> 
                     
                     <div className="card-side-image">
                     {sideImages.map(({url,id}) => {
                      return id === imageId?
-                    <button key={id} onClick={() => setImageId(id)}><img className="side-image selected" src={url} alt={product.title} /></button> :
-                    <button key={id} onClick={() => setImageId(id)}><img className="side-image " src={url} alt={product.title} /></button>
+                    <button key={id} onClick={() =>  setImageId(id)}><img className="side-image selected" src={url} alt={product.title} /></button> :
+                    <button key={id} onClick={() => {setImageId(id);setHomeImage(url)} }><img className="side-image " src={url} alt={product.title} /></button>
                     }) }
                            </div>
                     
