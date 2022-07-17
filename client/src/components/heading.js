@@ -10,7 +10,7 @@ function Header() {
     const [isTogled , setTogled] = useState(false)
 
     return (
-        <header>
+        <header className="stick-item">
         <nav className="grid-container">
       
         <div className="grid-item menus"> 
@@ -23,6 +23,7 @@ function Header() {
         </div>
 
         <div className= {isTogled?"grid-item center expand":"grid-item center"} >
+        
         {isSlected === "home"
         ? <Link to={"/"}><img className="icon"  src="/images/icons/home.png" alt="" />{isTogled?"Home":""}</Link> 
         :<Link to={"/"} onClick={() => {setSelected("home");setTogled(false)}}><img className="icon"  src="/images/icons/homestrok.png" alt="" /></Link>
@@ -45,6 +46,8 @@ function Header() {
         </div>
     
         </nav>
+        {isTogled?<button className="display-button" onClick={() => {setTogled(false)}}></button>:""}
+        
         </header>
     )
 }
