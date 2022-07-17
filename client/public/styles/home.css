@@ -212,6 +212,8 @@ a .icon:hover,.ancher .icon:hover{
     justify-content: center;
     bottom: 15px;
     right: 10px;
+    z-index: 1;
+
 
 }
 .grid-item.center {
