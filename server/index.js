@@ -18,7 +18,7 @@ app.get("/api/products/:id" , (req,res) => {
     if(product){
         res.json(product)
     }else{
-        res.json({message : "nothing found"})
+        res.json({error})
     }
 })
 

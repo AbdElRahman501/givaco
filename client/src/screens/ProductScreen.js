@@ -22,11 +22,12 @@ function ProductScreen(){
         dispatch(detailsProduct(productId));
     },[dispatch,productId ]);
     
-    const {sideImages , sizes , colors } = product
     
     if (!product) {
-        return <div className="alert alert-danger">product not found</div>
-    }else{
+        return <div className="grid-container"><div className=" alert alert-danger">product not found</div></div>
+    }else{    
+        const {sideImages , sizes , colors } = product
+
         return (
             <div>
         {loading ? (<LoadingBox />) : error ? ( <MessageBox variant="danger">{error}</MessageBox>) : (

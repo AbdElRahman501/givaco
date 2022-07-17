@@ -13,6 +13,8 @@ function App() {
 return (
   <div>
   <Header />
+  <div className="body">
+   
   <Routes>
       <Route path="/cart/:_id" element={<CartScreen />} />
       <Route path="/cart" element={<CartScreen />} />
@@ -20,6 +22,7 @@ return (
       <Route path="products/:_id" element={<ProductScreen />} />
       <Route path="/Favorite" element={<LikedScreen />} />
   </Routes>
+  </div>
   <Footer />
   </div>
   );
