@@ -23,7 +23,7 @@ function Products(props){
             <h2 className="title">{title}</h2>
             <p className="content">{content.length>25 ? content.slice(0,25)+"...":content }</p>
             {inStoke > 0 
-            ?<button onClick={() => dispatch(addToCart(_id,1,"1","1"))}> <img className="icon revers" src="/images/icons/fi-rr-arrow-small-right.png" alt="" /> </button>
+            ?<button onClick={() => dispatch(addToCart(_id,1,"black","M"))}> <img className="icon revers" src="/images/icons/fi-rr-arrow-small-right.png" alt="" /> </button>
             : "" }
             <div className="rating">
             <img className="icon star-icon" src="/images/icons/Star.png" alt="" /> 
