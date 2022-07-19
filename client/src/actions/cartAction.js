@@ -6,7 +6,6 @@ export const addToCart = (productId, qty, itemColor, itemSize) => async (dispatc
 
     const color = data.colors.find(x => x === itemColor)
     const size = data.sizes.find(x => x === itemSize)
-    console.log(productId, qty, itemColor, itemSize);
     dispatch({
         type: CART_ADD_ITEM,
         payload: {

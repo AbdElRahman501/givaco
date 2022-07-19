@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Footer from "./components/footer";
 import {Route, Routes } from "react-router-dom";
 import ProductScreen from "./screens/ProductScreen";
@@ -10,10 +10,15 @@ import ShopeScreen from "./screens/shopScreen";
 
 
 function App() {
+  const [isDarkMode, setIsDarkMode] = useState(() => true);
+
 
 return (
-  <div>
-  <Header />
+  <div className={isDarkMode ? "" : "lightmode"} >
+  <Header  
+    isDarkMode = {isDarkMode}
+    setIsDarkMode = {setIsDarkMode}
+  />
   <div className="body">
    
   <Routes>

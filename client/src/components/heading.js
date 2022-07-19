@@ -4,9 +4,11 @@ import { Link } from "react-router-dom";
 import { listProducts } from "../actions/productsActions";
 import LoadingBox from "./LoadingBox";
 import MessageBox from "./MessageBox";
+import DarkModeToggle from "react-dark-mode-toggle";
 
 
-function Header() {
+
+function Header(props) {
     // for search engine
     const [query, setQuery] = useState("")
     const productList = useSelector( state => state.productList);
@@ -16,8 +18,6 @@ function Header() {
     useEffect(() =>{
         dispatch(listProducts())
     },[dispatch])
-
-
     const cart = useSelector(state => state.cart);
     const {cartItems} = cart 
     const [isSlected , setSelected] = useState("home")
@@ -26,7 +26,6 @@ function Header() {
     return (
         <header className="stick-item">
         <nav className="grid-container">
-      
         <div className="grid-item menus"> 
         <button onClick={() => {isTogled?setTogled(false):setTogled(true)}} className="ancher"><img className="icon" src="/images/icons/menus.png" alt="" /></button> 
         </div>
@@ -36,7 +35,7 @@ function Header() {
         </Link>
         </div>
 
-        <div className= {isTogled?"grid-item center expand":"grid-item center"} >
+        <div className= {isTogled? "grid-item center expand":"grid-item center" } >
         
         {isTogled?
             <div className="search-bar">
@@ -74,13 +73,18 @@ function Header() {
         ? <Link to={"/Favorite"}><img className="icon" src="/images/icons/icons8-heart-50fill.png" alt="" />{isTogled?"Fav":""}</Link> 
         :<Link to={"/Favorite"} onClick={() => {setSelected("liked");setTogled(false)}}><img className="icon" src="/images/icons/icons8-heart-50.png" alt="" /></Link>
         }
+        {isTogled? <DarkModeToggle
+        onChange={() => props.setIsDarkMode(props.isDarkMode?false:true)}
+        checked={props.isDarkMode}
+        size={80}
+        />:"" }
+        
         </div>
         <div className="grid-item">
             
-            <a className="counter" href="/cart">{cartItems && cartItems.length > 0 && (
-            <span style={{backgroundColor: 'red'}}>{cartItems.length}</span>
-        )}
-        <img className="icon" src="/images/icons/Cart.png" alt="" /></a>
+            <Link className="counter" to={"/cart"}>{cartItems && cartItems.length > 0 && (
+            <span style={{backgroundColor: 'red'}}>{cartItems.length}</span> )}
+            <img className="icon" src="/images/icons/Cart.png" alt="" /></Link>
         </div>
     
         </nav>
