@@ -37,7 +37,7 @@ function ProductScreen() {
             <div>
                 {loading ? (<LoadingBox />) : error ? (<MessageBox variant="danger">{error}</MessageBox>) : (
                     <section id="item">
-                        <button className='go-back ancher' onClick={() => navigate(-1)}> <span className="in-top-page"><img className='icon revers' src='/images/icons/eva_arrow-back-outline.png' ></img>  Product page</span> </button> 
+                        <button className='go-back ancher' onClick={() => navigate(-1)}> <span className="in-top-page"><img className='icon revers' src='/images/icons/eva_arrow-back-outline.png' alt="icon"/>  Product page</span> </button> 
                         <div className="grid-container">
 
                             <div className="grid-item">

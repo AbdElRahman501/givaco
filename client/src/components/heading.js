@@ -69,10 +69,6 @@ function Header(props) {
         ? <Link to={"/#"}><img className="icon" src="/images/icons/userfill.png" alt="" />{isTogled?"Profile":""}</Link> 
         :<Link to={"/#"} onClick={() => {setSelected("profile");setTogled(false)}}><img className="icon" src="/images/icons/profile.png" alt="" /></Link>
         }
-        {isSlected === "liked"
-        ? <Link to={"/Favorite"}><img className="icon" src="/images/icons/icons8-heart-50fill.png" alt="" />{isTogled?"Fav":""}</Link> 
-        :<Link to={"/Favorite"} onClick={() => {setSelected("liked");setTogled(false)}}><img className="icon" src="/images/icons/icons8-heart-50.png" alt="" /></Link>
-        }
         {isTogled? <DarkModeToggle
         onChange={() => props.setIsDarkMode(props.isDarkMode?false:true)}
         checked={props.isDarkMode}
@@ -80,11 +76,15 @@ function Header(props) {
         />:"" }
         
         </div>
-        <div className="grid-item">
-            
-            <Link className="counter" to={"/cart"}>{cartItems && cartItems.length > 0 && (
-            <span style={{backgroundColor: 'red'}}>{cartItems.length}</span> )}
-            <img className="icon" src="/images/icons/Cart.png" alt="" /></Link>
+        <div className="grid-item left">
+        {isSlected === "liked"
+        ? <Link to={"/Favorite"}><img className="icon" src="/images/icons/icons8-heart-50fill.png" alt="" /></Link> 
+        :<Link to={"/Favorite"} onClick={() => {setSelected("liked");setTogled(false)}}><img className="icon" src="/images/icons/icons8-heart-50.png" alt="" /></Link>
+        }
+        <Link className="counter" to={"/cart"} onClick={() => setSelected("Cart")}>
+        {cartItems && cartItems.length > 0 && (
+        <span style={{backgroundColor: 'red'}}>{cartItems.length}</span> )}
+        <img className="icon" src="/images/icons/Cart.png" alt="" /></Link>
         </div>
     
         </nav>

@@ -282,14 +282,14 @@ header.stick-item {
 .counter span {
     position: absolute;
     background: rgb(170, 170, 170);
-    width: 1rem;
-    height: 1rem;
-    font-size: .5rem;
+    width: 14px;
+    height: 14px;
+    font-size: 11px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    bottom: 15px;
+    bottom: 20px;
     right: 10px;
     z-index: 1;
 
@@ -302,6 +302,11 @@ header.stick-item {
     justify-content: space-between;
     align-items: center;
     gap: 6rem;
+}
+.grid-item.left .icon{
+    width: 21px;
+    height: 21px;
+    padding: 4px;
 }
 
 .grid-item.center .icon {
@@ -823,7 +828,7 @@ header.stick-item {
 
 @media screen and (max-width: 830px) {
     .card-image.large {
-        width: 90%;
+        width: 95.7%;
     }
 
     .card-side-image {

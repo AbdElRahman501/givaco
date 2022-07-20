@@ -6,21 +6,22 @@ import { addToCart } from "../actions/cartAction";
 function Products(props){
     const dispatch = useDispatch();
     const { title , price , image , rating,numberOfRating,_id,content,inStoke } = props.product
-    const stoke = []
     const[isInStoke, setIsInStoke] = useState(true)
+    const [item , setItem] = useState({})
+
     useEffect(() => {
-          
-        inStoke?.map(x => {
+        const stoke = []
+
+        inStoke?.forEach(x => {
             const color = x.color
-            x.sizes.map(x => {
+            x.sizes.forEach(x => {
                 const size = x.size
-                const qtyInStoke = inStoke?.find(x => x.color === color)?.sizes.find(x => x.size===size)?.qty
-                stoke.push(qtyInStoke)
-            })
-            
+                stoke.push(x.qty)
+                x.qty>0 && setItem({color:color , size:size})
+            });
         });
         Math.max(...stoke)>0? setIsInStoke(true) : setIsInStoke(false)
-    });
+    },[inStoke]);
 
 
     
@@ -40,7 +41,7 @@ function Products(props){
             <h2 className="title">{title}</h2>
             <p className="content">{content.length>25 ? content.slice(0,25)+"...":content }</p>
             {isInStoke 
-            ?<button onClick={() => dispatch(addToCart(_id,1,"black","M"))}> <img className="icon revers" src="/images/icons/fi-rr-arrow-small-right.png" alt="" /> </button>
+            ?<button onClick={() => {dispatch(addToCart(_id,1,item.color,item.size))}}> <img className="icon revers" src="/images/icons/fi-rr-arrow-small-right.png" alt="" /> </button>
             : "" }
             <div className="rating">
             <img className="icon star-icon" src="/images/icons/Star.png" alt="" /> 
