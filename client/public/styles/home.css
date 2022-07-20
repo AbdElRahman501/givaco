@@ -48,7 +48,7 @@ body {
 }
 
 .body {
-    min-height: 100vh;
+    min-height: 80vh;
 }
 
 nav {
@@ -131,6 +131,11 @@ nav {
 }
 
 /* comon */
+.in-top-page{
+    padding: 0.5rem 0;
+    display: inline-flex;
+    align-items: center;
+}
 .success {
     color: green;
 }
@@ -138,6 +143,7 @@ nav {
 .failed {
     color: red;
 }
+.disapled{ opacity: 0.1;}
 
 .white-text {
     color: var(--primary-text-color);
@@ -688,6 +694,9 @@ header.stick-item {
     font-weight: bold;
     transition: all 0.5s ease-in-out;
 }
+#item button.ancher{
+    display: contents;
+}
 
 #item button:hover {
     background: linear-gradient(359deg, #ffc567ad -52.8%, rgb(255 255 255 / 41%) 211.15%);
@@ -751,7 +760,10 @@ header.stick-item {
     border: 2px solid #999;
     transform: scale(1.2);
 }
-
+.colors .color-box.disapled:hover{
+    border: unset;
+    transform: unset;
+}
 #item .sizing button {
     display: contents;
 }
@@ -773,6 +785,12 @@ header.stick-item {
     background-color: #484a4c;
     border: 2px solid #999;
     transform: scale(1.2);
+}
+.sizing span.disapled:hover{
+    background-color: rgb(21, 21, 21);
+    border: unset;
+    transform: unset;
+
 }
 
 .card-image.large {
@@ -838,7 +856,7 @@ header.stick-item {
 /* start bag */
 #bag {
     background-color: var(--secounder-background-color);
-    min-height: 100vh;
+    min-height: 90vh;
 }
 
 #bag .grid-container {

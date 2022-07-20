@@ -1,10 +1,12 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link , useNavigate} from 'react-router-dom';
 import { addToCart, removeFromCart } from '../actions/cartAction';
 import MessageBox from '../components/MessageBox';
 
 export default function CartScreen() {
+  let navigate = useNavigate();
+
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
 
@@ -15,9 +17,8 @@ export default function CartScreen() {
 
   return (
     <section id="bag">
-      <Link to={"/"} className='go-back'>
-        <img className='icon revers' src='/images/icons/eva_arrow-back-outline.png' ></img>
-        Shopping Cart</Link>
+      <button className='go-back ancher' onClick={() => navigate(-1)}> <span className="in-top-page"><img className='icon revers' src='/images/icons/eva_arrow-back-outline.png' ></img>  Shopping bag</span> </button> 
+
       <div className="grid-container">
 
 

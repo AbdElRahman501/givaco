@@ -7,6 +7,7 @@ import Header from "./components/heading";
 import CartScreen from "./screens/CartScreen";
 import LikedScreen from "./screens/likedScreen";
 import ShopeScreen from "./screens/shopScreen";
+import ScrollToTop from "./components/scrollTotop";
 
 
 function App() {
@@ -20,8 +21,8 @@ return (
     setIsDarkMode = {setIsDarkMode}
   />
   <div className="body">
-   
-  <Routes>
+   <ScrollToTop>
+    <Routes>
       <Route path="/cart/:_id" element={<CartScreen />} />
       <Route path="/cart" element={<CartScreen />} />
       <Route path="/" element={<HomeScreen />} />
@@ -29,6 +30,8 @@ return (
       <Route path="/Favorite" element={<LikedScreen />} />
       <Route path="/shope/:keyword" element={<ShopeScreen />} />
   </Routes>
+   </ScrollToTop>
+  
   </div>
   <Footer />
   </div>

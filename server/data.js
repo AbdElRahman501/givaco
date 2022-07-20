@@ -26,7 +26,10 @@ const data = {
             numberOfRating: 2,
             price: 120,
             image: "/images/asta.png",
-            inStoke: 10,
+            inStoke: [
+                {color:"black", sizes:[{size:"S",qty:0},{size:"M",qty:0},{size:"L",qty:0},{size:"XL",qty:0}]},
+                {color:"white", sizes:[{size:"S",qty:0},{size:"M",qty:0},{size:"L",qty:0},{size:"XL",qty:0}]},
+                {color:"red", sizes:[{size:"S",qty:0},{size:"M",qty:0},{size:"L",qty:0},{size:"XL",qty:1}]}],
             colors: ["black", "white","red"],
             sizes: ["S","M","L","XL"],
             sideImages: ["/images/asta.png","/images/asta.png"]
@@ -41,7 +44,10 @@ const data = {
             numberOfRating: 5,
             price: 100,
             image: "/images/compass.png",
-            inStoke: 2,
+            inStoke: [
+                {color:"black", sizes:[{size:"S",qty:0},{size:"M",qty:0},{size:"L",qty:0},{size:"XL",qty:0}]},
+                {color:"white", sizes:[{size:"S",qty:0},{size:"M",qty:0},{size:"L",qty:0},{size:"XL",qty:0}]},
+                {color:"red", sizes:[{size:"S",qty:0},{size:"M",qty:0},{size:"L",qty:0},{size:"XL",qty:0}]}],
             colors: ["black", "white","red"],
             sizes: ["S","M","L","XL"],
             sideImages: ["/images/compass.png","/images/compass.png"]
@@ -56,7 +62,10 @@ const data = {
             numberOfRating: 8,
             price: 220,
             image: "/images/hunter.png",
-            inStoke: 19,
+            inStoke: [
+                {color:"black", sizes:[{size:"S",qty:2},{size:"M",qty:4},{size:"L",qty:9},{size:"XL",qty:1}]},
+                {color:"white", sizes:[{size:"S",qty:2},{size:"M",qty:4},{size:"L",qty:9},{size:"XL",qty:1}]},
+                {color:"red", sizes:[{size:"S",qty:2},{size:"M",qty:4},{size:"L",qty:9},{size:"XL",qty:1}]}],
             colors: ["black", "white","red"],
             sizes: ["S","M","L","XL"],
             sideImages: ["/images/hunter.png","/images/hunter.png"]
@@ -71,7 +80,10 @@ const data = {
             numberOfRating: 13,
             price: 210,
             image: "/images/hunter1.png",
-            inStoke: 20,
+            inStoke: [
+                {color:"black", sizes:[{size:"S",qty:2},{size:"M",qty:0},{size:"L",qty:9},{size:"XL",qty:1}]},
+                {color:"white", sizes:[{size:"S",qty:2},{size:"M",qty:4},{size:"L",qty:9},{size:"XL",qty:0}]},
+                {color:"red", sizes:[{size:"S",qty:2},{size:"M",qty:4},{size:"L",qty:0},{size:"XL",qty:1}]}],
             colors: ["black", "white","red"],
             sizes: ["S","M","L","XL"],
             sideImages: ["/images/hunter1.png","/images/hunter1.png"]
@@ -86,7 +98,10 @@ const data = {
             numberOfRating: 15,
             price: 150,
             image: "/images/killewa2.png",
-            inStoke: 15,
+            inStoke: [
+                {color:"black", sizes:[{size:"S",qty:0},{size:"M",qty:4},{size:"L",qty:9},{size:"XL",qty:1}]},
+                {color:"white", sizes:[{size:"S",qty:2},{size:"M",qty:4},{size:"L",qty:9},{size:"XL",qty:0}]},
+                {color:"red", sizes:[{size:"S",qty:2},{size:"M",qty:4},{size:"L",qty:9},{size:"XL",qty:1}]}],
             colors: ["black", "white","red"],
             sizes: ["S","M","L","XL"],
             sideImages: ["/images/killewa2.png","/images/killewa2.png"]
@@ -101,7 +116,10 @@ const data = {
             numberOfRating: 15,
             price: 150,
             image: "/images/moon.png",
-            inStoke: 0,
+            inStoke: [
+                {color:"black", sizes:[{size:"S",qty:2},{size:"M",qty:4},{size:"L",qty:9},{size:"XL",qty:1}]},
+                {color:"white", sizes:[{size:"S",qty:2},{size:"M",qty:4},{size:"L",qty:9},{size:"XL",qty:1}]},
+                {color:"red", sizes:[{size:"S",qty:0},{size:"M",qty:0},{size:"L",qty:0},{size:"XL",qty:0}]}],
             colors: ["black", "white","red"],
             sizes: ["S","M","L","XL"],
             sideImages: ["/images/moon.png","/images/asta.png"]
@@ -116,7 +134,10 @@ const data = {
             numberOfRating: 15,
             price: 150,
             image: "/images/stayontouch.png",
-            inStoke: 16,
+            inStoke: [
+                {color:"black", sizes:[{size:"S",qty:2},{size:"M",qty:4},{size:"L",qty:9},{size:"XL",qty:1}]},
+                {color:"white", sizes:[{size:"S",qty:2},{size:"M",qty:4},{size:"L",qty:9},{size:"XL",qty:1}]},
+                {color:"red", sizes:[{size:"S",qty:2},{size:"M",qty:4},{size:"L",qty:9},{size:"XL",qty:1}]}],
             colors: ["black", "white","red"],
             sizes: ["S","M","L","XL"],
             sideImages: ["/images/stayontouch.png","/images/stayontouch.png"]
@@ -131,7 +152,10 @@ const data = {
             numberOfRating: 15,
             price: 150,
             image: "/images/wave.png",
-            inStoke: 5,
+            inStoke: [
+                {color:"black", sizes:[{size:"S",qty:2},{size:"M",qty:4},{size:"L",qty:9},{size:"XL",qty:1}]},
+                {color:"white", sizes:[{size:"S",qty:2},{size:"M",qty:4},{size:"L",qty:9},{size:"XL",qty:1}]},
+                {color:"red", sizes:[{size:"S",qty:2},{size:"M",qty:4},{size:"L",qty:9},{size:"XL",qty:1}]}],
             colors: ["black", "white","red"],
             sizes: ["S","M","L","XL"],
             sideImages: ["/images/wave.png","/images/moon.png"]
@@ -146,7 +170,10 @@ const data = {
             numberOfRating: 5,
             price: 100,
             image: "/images/mainpic.jpg",
-            inStoke: 2,
+            inStoke: [
+                {color:"black", sizes:[{size:"S",qty:2},{size:"M",qty:4},{size:"L",qty:9},{size:"XL",qty:1}]},
+                {color:"white", sizes:[{size:"S",qty:2},{size:"M",qty:4},{size:"L",qty:9},{size:"XL",qty:1}]},
+                {color:"red", sizes:[{size:"S",qty:2},{size:"M",qty:4},{size:"L",qty:9},{size:"XL",qty:1}]}],
             colors: ["black", "white","red"],
             sizes: ["S","M","L","XL"],
             sideImages: ["/images/mainpic.jpg","/images/asta.png"]
