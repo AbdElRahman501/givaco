@@ -267,7 +267,7 @@ a .icon:hover,
 header.stick-item {
     position: sticky;
     top: -1px;
-    z-index: 2;
+    z-index: 3;
 }
 
 .brand-name {
@@ -277,7 +277,6 @@ header.stick-item {
 
 .counter {
     position: relative;
-    z-index: 1;
 }
 
 .counter span {
@@ -336,7 +335,6 @@ header.stick-item {
 @media screen and (max-width: 768px) {
     .menus {
         display: block;
-        z-index: 1;
     }
 
     .grid-item.center {
@@ -858,68 +856,6 @@ header.stick-item {
 }
 
 
-@media screen and (max-width: 450px) {
-    .card-side-image {
-        display: flex;
-        position: absolute;
-        width: 100%;
-        align-items: center;
-        justify-content: center;
-        bottom: 0rem;
-    }
-    .side-image {
-    width: 20px;
-    }
-    #item .grid-container{
-        padding: 0;
-    }
-    #item .grid-item {
-        position: unset;
-    }
-    #item .grid-item:nth-child(1) {
-        position: relative;
-        max-width: 600px;
-        min-height: 54vh;
-        width: 100%;
-        transition: all 0.5s;
-        z-index: 3;
-    }
-    #item .grid-item:nth-child(2) {
-        border-radius: 25px 25px 0 0;
-        width: 100%;
-        max-width: inherit;
-        padding: 1rem 1rem 7rem 1rem;
-        position: relative;
-        background-color: #242526;
-        margin-bottom: 0;
-        z-index: 3;
-    }
-    .card-image.large {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    padding: 0;
-    border-radius: 0;
-    }
-    .product-details{
-        padding: 1rem;
-        position: relative;
-        height: 100%;
-    }
-    .fixed-cart{
-        position: fixed;
-        top: 1rem;
-        right: 1rem;
-    }
-    .fixed-menus{
-        z-index: 4;
-        position: fixed;
-        top: 1rem;
-        left: 1rem;
-    }
-    
-}
 /* end item */
 
 /* start bag */

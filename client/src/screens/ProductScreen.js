@@ -31,13 +31,13 @@ function ProductScreen() {
     if (!product) {
         return <div className="grid-container"><div className=" alert alert-danger">product not found</div></div>
     } else {
-        const { sideImages, sizes, colors } = product
+        const { sideImages, sizes} = product
 
         return (
             <div>
                 {loading ? (<LoadingBox />) : error ? (<MessageBox variant="danger">{error}</MessageBox>) : (
                     <section id="item">
-                        <button className='go-back ancher ' onClick={() => navigate(-1)}> <span className="in-top-page fixed-menus"><img className='icon revers' src='/images/icons/eva_arrow-back-outline.png' alt="icon"/></span> </button> 
+                        <button className='go-back ancher ' onClick={() => navigate(-1)}> <span className="in-top-page "><img className='icon revers' src='/images/icons/eva_arrow-back-outline.png' alt="icon"/></span> </button> 
                         <div className="grid-container">
 
                             <div className="grid-item">
