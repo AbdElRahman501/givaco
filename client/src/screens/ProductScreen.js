@@ -37,7 +37,7 @@ function ProductScreen() {
             <div>
                 {loading ? (<LoadingBox />) : error ? (<MessageBox variant="danger">{error}</MessageBox>) : (
                     <section id="item">
-                        <button className='go-back ancher' onClick={() => navigate(-1)}> <span className="in-top-page"><img className='icon revers' src='/images/icons/eva_arrow-back-outline.png' alt="icon"/>  Product page</span> </button> 
+                        <button className='go-back ancher ' onClick={() => navigate(-1)}> <span className="in-top-page fixed-menus"><img className='icon revers' src='/images/icons/eva_arrow-back-outline.png' alt="icon"/></span> </button> 
                         <div className="grid-container">
 
                             <div className="grid-item">
@@ -65,7 +65,7 @@ function ProductScreen() {
                                         <i className={product.rating >= 5 ? "fa fa-star" : product.rating >= 4.5 ? "fa fa-star-half-o" : "fa fa-star-o"} />
                                     </span>
                                 </div>
-                                <h2 className="price white-text">{product.price}</h2>
+                                <h2 className="price white-text">{product.price} EGP</h2>
                                 <div className="colors" >
                                 {product.inStoke?.map((x, index) => {
                                         const color = x.color
