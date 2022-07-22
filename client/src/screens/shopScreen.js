@@ -47,7 +47,7 @@ function addLiked(id){
         {products.filter(post => {
              if (query === '') {
                return "";
-             } else if (post.title.toLowerCase().includes(query.toLowerCase()) 
+             } else if (post.name.toLowerCase().includes(query.toLowerCase()) 
              || post.category.toLowerCase().includes(query.toLowerCase()) || post.keywords.toLowerCase().includes(query.toLowerCase()) ) {
                return post;
              }

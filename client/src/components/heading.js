@@ -39,13 +39,13 @@ function Header(props) {
         
         {isTogled?
             <div className="search-bar">
-            <input placeholder="Enter Post Title" onChange={event => setQuery(event.target.value)} />
+            <input placeholder="Enter Post name" onChange={event => setQuery(event.target.value)} />
             {loading ? (<LoadingBox />) : error ? ( <MessageBox variant="danger">{error}</MessageBox>) : (
             <ul>
             {products.filter(post => {
              if (query === '') {
                return "";
-             } else if (post.title.toLowerCase().includes(query.toLowerCase()) 
+             } else if (post.name.toLowerCase().includes(query.toLowerCase()) 
              || post.category.toLowerCase().includes(query.toLowerCase()) || post.keywords.toLowerCase().includes(query.toLowerCase()) ) {
                return post;
              }

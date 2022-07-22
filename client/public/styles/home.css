@@ -46,6 +46,15 @@ body {
         --icon-filter: none;
         --icon-filter-hover: invert(1) sepia(4%) saturate(768%) hue-rotate(167deg) brightness(700%) contrast(92%) ;
 }
+.darkemode{
+    --primary-background-color : #141517;
+    --primary-text-color : rgb(238, 238, 238);
+    --secoundry-text-color: #999 ;
+    --secounder-background-color :#1a1a1a;
+
+    --icon-filter: invert(1) sepia(4%) saturate(768%) hue-rotate(167deg) brightness(700%) contrast(92%);
+    --icon-filter-hover: none ;
+}
 
 .body {
     min-height: 80vh;

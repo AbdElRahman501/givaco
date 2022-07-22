@@ -42,19 +42,19 @@ function ProductScreen() {
 
                             <div className="grid-item">
 
-                                <img className="card-image large" src={homeImage || product.image} alt={product.title} />
+                                <img className="card-image large" src={homeImage || product.image} alt={product.name} />
 
                                 <div className="card-side-image">
                                     {sideImages.map((image, index) => {
                                         return index === imageId
-                                            ? <button key={index} onClick={() => setImageId(index)}><img className="side-image selected" src={image} alt={product.title} /></button>
-                                            : <button key={index} onClick={() => { setImageId(index); setHomeImage(image) }}><img className="side-image " src={image} alt={product.title} /></button>
+                                            ? <button key={index} onClick={() => setImageId(index)}><img className="side-image selected" src={image} alt={product.name} /></button>
+                                            : <button key={index} onClick={() => { setImageId(index); setHomeImage(image) }}><img className="side-image " src={image} alt={product.name} /></button>
                                     })}
                                 </div>
 
                             </div>
                             <div className="grid-item">
-                                <h1 className="title white-text">{product.title}</h1>
+                                <h1 className="title white-text">{product.name}</h1>
                                 <p className="status">{product.content} </p>
                                 <div className="rating">
                                     <span>

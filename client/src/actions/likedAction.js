@@ -7,7 +7,7 @@ export const addToLiked = (productId) => async(dispatch , getState) => {
     type: LIKED_ADD_ITEM,
     payload:{
         _id: data._id,
-        title : data.title,
+        name : data.name,
         content: data.content,
         category: data.category ,
         prand: data.prand,

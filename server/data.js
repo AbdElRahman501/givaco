@@ -16,8 +16,8 @@ const data = {
     ],
     products: [
         {
-            _id: "1",
             title: "Over size T-shirt",
+            name: "Over size T-shirt",
             content: "100% cutton printed high quality",
             keywords: " over size tshirt teshirt shirts printed basic asta",
             category: "shirts",
@@ -34,8 +34,8 @@ const data = {
             sizes: ["S","M","L","XL"],
             sideImages: ["/images/asta.png","/images/asta.png"]
         }, {
-            _id: "2",
             title: "nike shirts",
+            name: "Over size T-shirt",
             keywords: " tshirt teshirt ",
             category: "pants",
             content: "comfortabl shirt",
@@ -52,8 +52,8 @@ const data = {
             sizes: ["S","M","L","XL"],
             sideImages: ["/images/compass.png","/images/compass.png"]
         }, {
-            _id: "3",
             title: " t-shirt basic",
+            name: "Over size T-shirt",
             keywords: " tshirt teshirt ",
             category: "shirts",
             content: "basic shirt",
@@ -70,8 +70,8 @@ const data = {
             sizes: ["S","M","L","XL"],
             sideImages: ["/images/hunter.png","/images/hunter.png"]
         }, {
-            _id: "4",
-            title: "Over size T-shirt",
+            title: "Over size T-shirt1",
+            name: "Over size T-shirt",
             keywords: " tshirt teshirt ",
             category: "shirts",
             content: "great shirt",
@@ -88,8 +88,8 @@ const data = {
             sizes: ["S","M","L","XL"],
             sideImages: ["/images/hunter1.png","/images/hunter1.png"]
         }, {
-            _id: "5",
-            title: "Over size T-shirt",
+            title: "Over size T-shirt2",
+            name: "Over size T-shirt",
             keywords: " tshirt teshirt ",
             category: "shirts",
             content: "great shirt",
@@ -106,8 +106,8 @@ const data = {
             sizes: ["S","M","L","XL"],
             sideImages: ["/images/killewa2.png","/images/killewa2.png"]
         }, {
-            _id: "6",
-            title: "Over size T-shirt",
+            title: "Over size T-shirt6",
+            name: "Over size T-shirt",
             keywords: " tshirt teshirt ",
             category: "shirts",
             content: "great shirt",
@@ -124,8 +124,8 @@ const data = {
             sizes: ["S","M","L","XL"],
             sideImages: ["/images/moon.png","/images/asta.png"]
         }, {
-            _id: "7",
-            title: "Over size T-shirt",
+            title: "Over size T-shirt3",
+            name: "Over size T-shirt",
             keywords: " tshirt teshirt ",
             category: "pants",
             content: "great shirt",
@@ -142,8 +142,8 @@ const data = {
             sizes: ["S","M","L","XL"],
             sideImages: ["/images/stayontouch.png","/images/stayontouch.png"]
         }, {
-            _id: "8",
-            title: "Over size T-shirt",
+            title: "Over size T-shirt4",
+            name: "Over size T-shirt",
             keywords: " tshirt teshirt ",
             category: "shirts",
             content: "great shirt",
@@ -160,8 +160,8 @@ const data = {
             sizes: ["S","M","L","XL"],
             sideImages: ["/images/wave.png","/images/moon.png"]
         }, {
-            _id: "9",
-            title: "Over size T-shirt",
+            title: "Over size T-shirt5",
+            name: "Over size T-shirt",
             keywords: " tshirt teshirt ",
             category: "shirts",
             content: "great shirt",

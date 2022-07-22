@@ -17,7 +17,7 @@ export default function CartScreen() {
 
   return (
     <section id="bag">
-      <button className='go-back ancher' onClick={() => navigate(-1)}> <span className="in-top-page"><img className='icon revers' src='/images/icons/eva_arrow-back-outline.png' ></img>  Shopping bag</span> </button> 
+      <button className='go-back ancher' onClick={() => navigate(-1)}> <span className="in-top-page"><img className='icon revers' src='/images/icons/eva_arrow-back-outline.png' alt='icon' ></img>  Shopping bag</span> </button> 
 
       <div className="grid-container">
 
@@ -34,7 +34,7 @@ export default function CartScreen() {
 
 
                 <div key={index} className="bag-card">
-                  <Link to={"/products/" + item.product}><img className='item-img' src={item.image} alt={item.title} /></Link>
+                  <Link to={"/products/" + item.product}><img className='item-img' src={item.image} alt={item.name} /></Link>
                   <div>
                     <Link to={"/products/" + item.product}><h1 className="title" >Over size T-shirt</h1> </Link>
 

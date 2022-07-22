@@ -1,9 +1,10 @@
 import path from 'path';
 import express from "express";
 import mongoose from 'mongoose';
+import 'dotenv/config'
 import { fileURLToPath } from 'url';
-import data from './data.js';
 import userRouter from './routers/userRouter.js';
+import productRouter from './routers/produRouter.js';
 
 
 const PORT = process.env.PORT || 3001;
@@ -13,6 +14,9 @@ const __dirname = path.dirname(__filename);
 
 const app = express();
 
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
+
 mongoose.connect('mongodb+srv://admin-abdelrahman:bedo4ahmed@realmcluster.eiosx.mongodb.net/givaco', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -20,24 +24,15 @@ mongoose.connect('mongodb+srv://admin-abdelrahman:bedo4ahmed@realmcluster.eiosx.
 
 app.use(express.static(path.resolve(__dirname, '../client/build')))
 
-app.get("/api/products/:id", (req, res) => {
-  const product = data.products.find((x) => x._id === req.params.id);
-  if (product) {
-    res.json(product)
-  } else {
-    res.json({ error })
-  }
-})
+
 
 app.get("/api", (req, res) => {
   res.json({ message: "Hello from server!" });
 })
 
-app.get("/api/products", (req, res) => {
-  res.json(data.products);
-});
+app.use("/api/users", userRouter);
+app.use("/api/products", productRouter);
 
-app.use("/api/users", userRouter)
 
 // All other GET requests not handled before will return our React app
 app.get('*', (req, res) => {

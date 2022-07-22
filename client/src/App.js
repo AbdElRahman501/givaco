@@ -15,7 +15,7 @@ function App() {
 
 
 return (
-  <div className={isDarkMode ? "" : "lightmode"} >
+  <div className={isDarkMode ? "darkemode" : "lightmode"} >
   <Header  
     isDarkMode = {isDarkMode}
     setIsDarkMode = {setIsDarkMode}
