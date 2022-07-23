@@ -66,8 +66,12 @@ function Header(props) {
         :<Link to={"/"} onClick={() => {setSelected("home");setTogled(false)}}><img className="icon"  src="/images/icons/homestrok.png" alt="" /></Link>
         }
         {isSlected === "profile"
-        ? <Link to={"/#"}><img className="icon" src="/images/icons/userfill.png" alt="" />{isTogled?"Profile":""}</Link> 
-        :<Link to={"/#"} onClick={() => {setSelected("profile");setTogled(false)}}><img className="icon" src="/images/icons/profile.png" alt="" /></Link>
+        ? <Link to={"/signin"}><img className="icon" src="/images/icons/userfill.png" alt="" />{isTogled?"Profile":""}</Link> 
+        :<Link to={"/signin"} onClick={() => {setSelected("profile");setTogled(false)}}><img className="icon" src="/images/icons/profile.png" alt="" /></Link>
+        }
+        {isSlected === "liked"
+        ? <Link to={"/Favorite"} ><img className="icon" src="/images/icons/icons8-heart-50fill.png" alt="" /></Link> 
+        :<Link to={"/Favorite"} onClick={() => {setSelected("liked");setTogled(false)}}><img className="icon" src="/images/icons/icons8-heart-50.png" alt="" /></Link>
         }
         {isTogled? <DarkModeToggle
         onChange={() => props.setIsDarkMode(props.isDarkMode?false:true)}
@@ -78,8 +82,8 @@ function Header(props) {
         </div>
         <div className="grid-item left">
         {isSlected === "liked"
-        ? <Link to={"/Favorite"}><img className="icon" src="/images/icons/icons8-heart-50fill.png" alt="" /></Link> 
-        :<Link to={"/Favorite"} onClick={() => {setSelected("liked");setTogled(false)}}><img className="icon" src="/images/icons/icons8-heart-50.png" alt="" /></Link>
+        ? <Link to={"/Favorite"} className="mopile-display-only"><img className="icon" src="/images/icons/icons8-heart-50fill.png" alt="" /></Link> 
+        :<Link to={"/Favorite"} className="mopile-display-only" onClick={() => {setSelected("liked");setTogled(false)}}><img className="icon" src="/images/icons/icons8-heart-50.png" alt="" /></Link>
         }
         <Link className="counter" to={"/cart"} onClick={() => setSelected("Cart")}>
         {cartItems && cartItems.length > 0 && (

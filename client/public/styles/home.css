@@ -219,7 +219,7 @@ a {
 
 a:hover {
     transition: .3s;
-    color: rgb(255, 255, 255);
+    color: var(--primary-background-color);
 }
 
 li {
@@ -279,7 +279,13 @@ a .icon:hover,
 .category {
     background: var(--secounder-background-color);
 }
-
+.mopile-display-only{
+    display: none;
+    }
+@media screen and (max-width: 768px) {
+    .mopile-display-only{
+        display: unset;
+    }}
 /* end comon */
 
 /* start nav */
