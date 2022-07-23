@@ -1,21 +1,37 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import { signin } from "../actions/userActions";
 
-export default function SigninScreen() {
+
+export default function SigninScreen(props) {
     let navigate = useNavigate();
 
-    const [Email, setEmail] = useState("")
-    const [Password, setPassword] = useState("")
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+    
+
+    const userSignin = useSelector((state) => state.userSignin);
+    const {userInfo ,loading , error} = userSignin
+
+    const dispatch = useDispatch();
 
     function submitHandler(e) {
         e.preventDefault();
-    }
+        dispatch(signin(email,password))
+    };
+    useEffect(() => {
+        if(userInfo){
+        navigate("/shiping")
+        }
+    }, [navigate,userInfo])
     return (
         <div id="signin" >
             <button className='go-back ancher ' onClick={() => navigate(-1)}> <span className="in-top-page "><img className='icon revers' src='/images/icons/eva_arrow-back-outline.png' alt="icon" />Sign In Page</span> </button>
 
                 <form onSubmit={submitHandler}>
                     <h1>Sign In</h1>
+                    {error && <h1 style={{color:"red" , fontSize:"10px"}}>{error}</h1>}
                     <label htmlFor="inp" className="inp">
                         <input type="email"
                             id="email"
@@ -46,7 +62,7 @@ export default function SigninScreen() {
                     <div>
                         <label />
                         <button className="primary" type="submit">
-                            Sign in
+                        {loading ? <i className="fa fa-spinner fa-spin"/>  : "Sign In"}
                         </button>
                     </div>
                     <div>

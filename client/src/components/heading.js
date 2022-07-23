@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { listProducts } from "../actions/productsActions";
 import LoadingBox from "./LoadingBox";
 import MessageBox from "./MessageBox";
 import DarkModeToggle from "react-dark-mode-toggle";
+import { signout } from "../actions/userActions";
 
 
 
@@ -14,15 +14,17 @@ function Header(props) {
     const productList = useSelector( state => state.productList);
     const {loading , error , products} = productList
     const dispatch = useDispatch();    
-
-    useEffect(() =>{
-        dispatch(listProducts())
-    },[dispatch])
     const cart = useSelector(state => state.cart);
     const {cartItems} = cart 
     const [isSlected , setSelected] = useState("home")
     const [isTogled , setTogled] = useState(false)
 
+    const userSignin = useSelector((state) => state.userSignin);
+    const {userInfo} = userSignin ;
+
+    const signoutHandler = () => {
+        dispatch(signout())
+    }
     return (
         <header className="stick-item">
         <nav className="grid-container">
@@ -65,7 +67,19 @@ function Header(props) {
         ? <Link to={"/"}><img className="icon"  src="/images/icons/home.png" alt="" />{isTogled?"Home":""}</Link> 
         :<Link to={"/"} onClick={() => {setSelected("home");setTogled(false)}}><img className="icon"  src="/images/icons/homestrok.png" alt="" /></Link>
         }
-        {isSlected === "profile"
+        {
+        userInfo? (
+            
+
+            <div className="dropdown">
+            <Link to={"#"} className="dropbtn"><img className="icon profile-active" src="/images/icons/userfill.png" alt="" />{isTogled?"Profile":""}</Link>
+                <div className="dropdown-content">
+                <Link to="#">{userInfo.name}</Link>
+                <Link to="#" onClick={signoutHandler}> signout</Link>
+                 </div>
+            </div>
+
+            ): isSlected === "profile"
         ? <Link to={"/signin"}><img className="icon" src="/images/icons/userfill.png" alt="" />{isTogled?"Profile":""}</Link> 
         :<Link to={"/signin"} onClick={() => {setSelected("profile");setTogled(false)}}><img className="icon" src="/images/icons/profile.png" alt="" /></Link>
         }

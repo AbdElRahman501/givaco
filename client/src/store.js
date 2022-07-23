@@ -2,6 +2,7 @@ import { configureStore } from '@reduxjs/toolkit'
 import { cartReducer } from './reducers/cartReducers';
 import { likedReducer } from './reducers/likedReducers';
 import{ productDetailsReducer, productListReducer} from './reducers/productReducers';
+import { userSigninReducer } from './reducers/useReducer';
 
 
 
@@ -12,7 +13,11 @@ const initialState = {
   : [] },
   liked:{likedItems: localStorage.getItem("likedItems")
   ? JSON.parse(localStorage.getItem("likedItems"))
-  : [] }
+  : [] },
+  userSignin:{userInfo: localStorage.getItem("userInfo")
+  ? JSON.parse(localStorage.getItem("userInfo"))
+  : null }
+
 }
 
 const store = configureStore({
@@ -20,7 +25,8 @@ const store = configureStore({
     productList: productListReducer,
     productDetalis: productDetailsReducer,
     cart: cartReducer,
-    liked: likedReducer
+    liked: likedReducer,
+    userSignin: userSigninReducer
   },
   preloadedState: initialState,
 })

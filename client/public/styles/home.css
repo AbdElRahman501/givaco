@@ -1,29 +1,4 @@
-:root {
 
-    --primary-background-color : #141517;
-    --primary-text-color : rgb(238, 238, 238);
-    --secoundry-text-color: #999 ;
-    --secounder-background-color :#1a1a1a;
-    
-
-    --icon-filter: invert(1) sepia(4%) saturate(768%) hue-rotate(167deg) brightness(700%) contrast(92%);
-    --icon-filter-hover: none ;
-
-}
-@media (prefers-color-scheme: light){
-    :root {
-
-        --primary-background-color : #999;
-        --primary-text-color : #141517;
-        --secoundry-text-color: rgb(40, 40, 40) ;
-
-        --secounder-background-color :#cdcdcd;
-    
-        --icon-filter: none;
-        --icon-filter-hover: invert(1) sepia(4%) saturate(768%) hue-rotate(167deg) brightness(700%) contrast(92%) ;
-    
-    }
-}
 input:-webkit-autofill,
 input:-webkit-autofill:hover, 
 input:-webkit-autofill:focus,
@@ -52,13 +27,13 @@ body {
 }
 .lightmode{
     --primary-background-color : #999;
-        --primary-text-color : #141517;
-        --secoundry-text-color: rgb(40, 40, 40) ;
-        
-        --secounder-background-color :#cdcdcd;
+    --primary-text-color : #141517;
+    --secoundry-text-color: rgb(40, 40, 40) ;
     
-        --icon-filter: none;
-        --icon-filter-hover: invert(1) sepia(4%) saturate(768%) hue-rotate(167deg) brightness(700%) contrast(92%) ;
+    --secounder-background-color :#cdcdcd;
+    
+    --icon-filter: none;
+    --icon-filter-hover: invert(1) sepia(4%) saturate(768%) hue-rotate(167deg) brightness(700%) contrast(92%) ;
 }
 .darkemode{
     --primary-background-color : #141517;
@@ -305,7 +280,37 @@ header.stick-item {
     font-family: 'Alata', sans-serif;
     font-size: 1.3rem;
 }
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+  
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--primary-background-color);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(108, 108, 108, 0.2);
+    z-index: 1;
+    border-radius: 0.5rem;
+}
+  
+.dropdown-content a {
+    color: var(--primary-text-color);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    border-radius: 0.5rem;
+}
+.dropdown-content a:nth-child(2) {color: brown }
+.dropdown-content a:hover {background-color: var(--secoundry-text-color);}
+  
 
+.dropdown:hover .dropdown-content {display: block;}
+.icon.profile-active{
+    filter:invert(0.6) sepia(13%) saturate(782%) hue-rotate(318deg) brightness(49%) contrast(153%);;
+}
+  
 .counter {
     position: relative;
 }
