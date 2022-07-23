@@ -33,7 +33,7 @@ textarea:-webkit-autofill:focus,
 select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
-  -webkit-text-fill-color: rgb(50, 146, 255);
+  -webkit-text-fill-color: brown;
   -webkit-box-shadow: 0 0 0px 1000px rgba(29, 29, 29, 0) inset;
   transition: background-color 5000s ease-in-out 0s;
 }
@@ -209,7 +209,6 @@ button:hover {
 
 button.ancher {
     display: contents;
-
 }
 
 a {
@@ -1084,22 +1083,23 @@ header.stick-item {
     min-height: 90vh;
     background-color: var(--secounder-background-color);
     color: var(--primary-text-color);
-  }
+}
   
-  #signin {
-    display: grid;
-    -webkit-text-size-adjust: 100%;
-    -webkit-font-smoothing: antialiased;
-    overflow: hidden;
-  }
+  
   #signin * {
     box-sizing: border-box;
   }
+  
   #signin h1{
     text-align: center;
   }
   #signin form{
-    padding-top:8rem ;
+    margin-top: 7rem;
+    max-width: unset;
+    display: grid;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    overflow: hidden;
   }
   #signin div{
     display: flex;
@@ -1107,8 +1107,14 @@ header.stick-item {
     align-items: center;
   }
   #signin button{
-    margin: 1rem auto;
+    margin: 3rem auto;
     background: brown;
+  }
+  #signin button.ancher img{
+    box-sizing: unset;
+  }
+  #signin a{
+    color: #bf7a7a;
   }
   .inp {
     position: relative;
@@ -1138,16 +1144,16 @@ header.stick-item {
     transition-delay: 0.15s;
   }
   .inp .check path {
-    stroke: #07f;
+    stroke: brown;
     stroke-width: 2;
   }
   .inp input {
     -webkit-appearance: none;
-    width: 93%;
+    width: 100%;
     border: 0;
     font-family: inherit;
-    padding: 7px;
-    height: 48px;
+    padding: 0;
+    height: 40px;
     font-size: 16px;
     font-weight: 500;
     background: none;
@@ -1159,7 +1165,7 @@ header.stick-item {
     outline: none;
   }
   .inp input:focus + .border path {
-    stroke: #07f;
+    stroke: brown;
   }
   .inp input:valid + .border path {
     animation: elasticInput 0.8s ease forwards;
