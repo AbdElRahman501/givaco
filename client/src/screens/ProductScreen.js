@@ -123,7 +123,7 @@ function ProductScreen() {
                                                 </Link>
                                                 <hr />
                                                 {itemColor?itemSize?inStoke>0
-                                                ?<Link to={"/cart/" + productId + "?qty=" + qty} ><button>Check Out</button></Link>
+                                                ?<Link to='/signin' ><button>Check Out</button></Link>
                                                 :"":"":"" }
 
                                             </div>

@@ -70,7 +70,7 @@ export default function CartScreen() {
                 <h6>total price :{cartItems.find(x => x.inStoke === 0) ? <span className='failed'> one of items out of stock</span> : ""} </h6>
                 <p className="white-text">({cartItems?.reduce((a, c) => a + c.qty, 0)} items) : $
                   {cartItems?.reduce((a, c) => a + c.price * c.qty, 0)}</p>
-                <Link to={'/signin?redirect=shipping'}><button disabled={cartItems.find(x => x.inStoke === 0) ? true : false}>Check out</button></Link>
+                <Link to={'/signin'}><button disabled={cartItems.find(x => x.inStoke === 0) ? true : false}>Check out</button></Link>
               </div>
             </div>
           </>

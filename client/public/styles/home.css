@@ -302,7 +302,7 @@ header.stick-item {
     display: block;
     border-radius: 0.5rem;
 }
-.dropdown-content a:nth-child(2) {color: brown }
+.dropdown-content a.signout{color: brown }
 .dropdown-content a:hover {background-color: var(--secoundry-text-color);}
   
 
