@@ -35,11 +35,14 @@ export default function RegisterScreen(props) {
     }, [navigate,userInfo])
     return (
         <div id="signin" >
-            <button className='go-back ancher ' onClick={() => navigate(-1)}> <span className="in-top-page "><img className='icon revers' src='/images/icons/eva_arrow-back-outline.png' alt="icon" />Sign In Page</span> </button>
-
+            <div className="grid-container">
+            <button className='go-back ancher ' onClick={() => navigate(-1)}>
+             <span className="in-top-page "><img className='icon revers' src='/images/icons/eva_arrow-back-outline.png' alt="icon" />register page</span>
+            </button>
+        </div>
                 <form onSubmit={submitHandler}>
                     <h1>Creat Account</h1>
-                    {error && <h1 style={{color:"red" , fontSize:"10px"}}>{error}</h1>}
+                    {error && <h1 style={{color:"red" , fontSize:"10px"}}>{error===500? "your email is already exist":"there is somthing wrong please try again later"}</h1>}
                     {alert && <h1 style={{color:"red" , fontSize:"10px"}}>{alert}</h1>}
                     <label htmlFor="inp" className="inp">
                         <input type="name"
@@ -73,6 +76,7 @@ export default function RegisterScreen(props) {
                             placeholder="Password"
                             required
                             pattern=".{6,}"
+                            title="password should be more than 6 digits"
                             onChange={(e) => setPassword(e.target.value)} />
                         <svg style={{ width: "280px", height: "30px", viewBox: "0 0 280 18" }} className="border">
                             <path d="M0,12 L223.166144,12 C217.241379,12 217.899687,12 225.141066,12 C236.003135,12 241.9279,12 249.827586,12 C257.727273,12 264.639498,12 274.514107,12 C281.097179,12 281.755486,12 276.489028,12"></path>

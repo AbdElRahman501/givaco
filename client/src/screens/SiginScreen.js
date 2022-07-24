@@ -27,7 +27,17 @@ export default function SigninScreen(props) {
     }, [navigate,userInfo])
     return (
         <div id="signin" >
-            <button className='go-back ancher ' onClick={() => navigate(-1)}> <span className="in-top-page "><img className='icon revers' src='/images/icons/eva_arrow-back-outline.png' alt="icon" />Sign In Page</span> </button>
+        <div className="grid-container">
+            <button className='go-back ancher ' onClick={() => navigate(-1)}>
+             <span className="in-top-page "><img className='icon revers' src='/images/icons/eva_arrow-back-outline.png' alt="icon" />Sign In Page</span>
+            </button>
+            <Link to="/shiping">
+            <button className='go-back ancher ' >
+             <span className="in-top-page ">Skipe<img className='icon revers' src='/images/icons/fi-rr-arrow-small-right.png' alt="icon" /></span>
+            </button>
+            </Link>
+        </div>
+            
 
                 <form onSubmit={submitHandler}>
                     <h1>Sign In</h1>
@@ -67,8 +77,9 @@ export default function SigninScreen(props) {
                     </div>
                     <div>
                         <label />
-                        New customer? <a href="/register"> Creat you account</a>
+                        New customer? <Link to="/register"> Creat you account</Link>
                     </div>
+                    
 
 
 

@@ -28,6 +28,7 @@ body {
 .lightmode{
     --primary-background-color : #999;
     --primary-text-color : #141517;
+    --primary-text-rev-color: #fff ;
     --secoundry-text-color: rgb(40, 40, 40) ;
     
     --secounder-background-color :#cdcdcd;
@@ -38,6 +39,7 @@ body {
 .darkemode{
     --primary-background-color : #141517;
     --primary-text-color : rgb(238, 238, 238);
+    --primary-text-rev-color: #000 ;
     --secoundry-text-color: #999 ;
     --secounder-background-color :#1a1a1a;
 
@@ -277,8 +279,8 @@ header.stick-item {
 }
 
 .brand-name {
-    font-family: 'Alata', sans-serif;
-    font-size: 1.3rem;
+    width: 5rem;
+    filter: var(--icon-filter);
 }
 .dropdown {
     position: relative;
@@ -1117,6 +1119,9 @@ header.stick-item {
     justify-content: center;
     align-items: center;
   }
+  #signin .grid-container{
+    justify-content: space-between;
+  }
   #signin button{
     margin: 3rem auto;
     background: brown;
@@ -1126,6 +1131,9 @@ header.stick-item {
   }
   #signin a{
     color: #bf7a7a;
+  }
+  #signin a:hover{
+    color: brown;
   }
   .inp {
     position: relative;
@@ -1185,7 +1193,7 @@ header.stick-item {
     transform: translate(0, 0) scale(1);
   }
   ::placeholder {
-    color: #9098a9;
+    color: #9098a983;
   }
   @-moz-keyframes elasticInput {
     33% {
