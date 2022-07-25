@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import { signin } from "../actions/userActions";
 
 
@@ -10,7 +10,10 @@ export default function SigninScreen(props) {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     
+    let { id } = useParams()
+    const {search} = useLocation();
 
+    
     const userSignin = useSelector((state) => state.userSignin);
     const {userInfo ,loading , error} = userSignin
 
@@ -21,17 +24,22 @@ export default function SigninScreen(props) {
         dispatch(signin(email,password))
     };
     useEffect(() => {
-        if(userInfo){
-        navigate("/shiping")
+       if(userInfo){
+        if(id){
+            navigate("/shiping"+id+search)
         }
-    }, [navigate,userInfo])
+        else {
+            navigate("/shiping")
+        }
+        }
+    }, [search,id,navigate,userInfo])
     return (
         <div id="signin" >
         <div className="grid-container">
             <button className='go-back ancher ' onClick={() => navigate(-1)}>
              <span className="in-top-page "><img className='icon revers' src='/images/icons/eva_arrow-back-outline.png' alt="icon" />Sign In Page</span>
             </button>
-            <Link to="/shiping">
+            <Link to={id?"/shiping"+id+search : "/shiping" }>
             <button className='go-back ancher ' >
              <span className="in-top-page ">Skipe<img className='icon revers' src='/images/icons/fi-rr-arrow-small-right.png' alt="icon" /></span>
             </button>

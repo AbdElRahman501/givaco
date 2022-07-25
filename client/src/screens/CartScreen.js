@@ -38,7 +38,7 @@ export default function CartScreen() {
                   <div>
                     <Link to={"/products/" + item.product}><h1 className="title" >Over size T-shirt</h1> </Link>
 
-                    <span className="colors" ><i className="white-box" href=""></i> {item.color} | size = {item.size}</span>
+                    <span className="colors" ><i className="color-box" style={{backgroundColor: item.color }}></i>| size = {item.size}</span>
                     {item.inStoke === 0 ? <p className="avilability failed"> out of stock</p> : <p className="avilability success"> in stock</p>}
                     <h2 className="price white-text">{item.price} EGP </h2>
                     <select
@@ -70,7 +70,7 @@ export default function CartScreen() {
                 <h6>total price :{cartItems.find(x => x.inStoke === 0) ? <span className='failed'> one of items out of stock</span> : ""} </h6>
                 <p className="white-text">({cartItems?.reduce((a, c) => a + c.qty, 0)} items) : $
                   {cartItems?.reduce((a, c) => a + c.price * c.qty, 0)}</p>
-                <a href='/signin'><button disabled={cartItems.find(x => x.inStoke === 0) ? true : false}>Check out</button></a>
+                <Link to='/signin'><button disabled={cartItems.find(x => x.inStoke === 0) ? true : false}>Check out</button></Link>
               </div>
             </div>
           </>

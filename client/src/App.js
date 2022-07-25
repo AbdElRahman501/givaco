@@ -10,6 +10,7 @@ import ShopeScreen from "./screens/shopScreen";
 import ScrollToTop from "./components/scrollTotop";
 import SigninScreen from "./screens/SiginScreen";
 import RegisterScreen from "./screens/RegisterScreen";
+import ShipingAdressScreen from "./screens/ShipingAdressScreen";
 
 
 function App() {
@@ -31,8 +32,11 @@ return (
       <Route path="products/:_id" element={<ProductScreen />} />
       <Route path="/Favorite" element={<LikedScreen />} />
       <Route path="/shope/:keyword" element={<ShopeScreen />} />
+      <Route path="/signin:id" element={<SigninScreen />} />
       <Route path="/signin" element={<SigninScreen />} />
       <Route path="/register" element={<RegisterScreen />} />
+      <Route path="/shiping:id" element={<ShipingAdressScreen />} />
+      <Route path="/shiping" element={<ShipingAdressScreen />} />
 
 
   </Routes>

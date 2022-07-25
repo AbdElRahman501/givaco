@@ -46,7 +46,7 @@ function Header(props) {
                 </div>
                 <div className="grid-item">
                     <Link to={"/"} onClick={() => { setSelected("home"); setTogled(false) }} >
-                        <img src="/images/icons/GIVACOBLACK.png" className="brand-name" />
+                        <img src="/images/icons/GIVACOBLACK.png" className="brand-name" alt="GIVACO" />
                     </Link>
                 </div>
 
@@ -86,14 +86,14 @@ function Header(props) {
                             <div className="dropdown">
                                 <Link to={"#"} className="dropbtn"><img className="icon profile-active" src="/images/icons/userfill.png" alt="" />{isTogled ? userInfo.name : ""}</Link>
                                 <div className="dropdown-content">
-                                    <Link to="#" onClick={signoutHandler} className="signout" > signout</Link>
+                                    <a href="/" onClick={signoutHandler} className="signout" > signout</a>
                                 </div>
                             </div>
                         )
-                            : <a href="/signin" onClick={() => { setTogled(false) }}>
+                            : <Link to="/signin" onClick={() => { setTogled(false) }}>
                                 <img className="icon" src={isSlected === "/signin" ? "/images/icons/userfill.png" : "/images/icons/profile.png"} alt="" />
                                 {isTogled ? "Profile" : ""}
-                            </a>
+                            </Link>
                     }
 
                     <Link to={"/Favorite"} onClick={() => { setTogled(false) }}>
