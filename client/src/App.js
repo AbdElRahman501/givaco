@@ -11,6 +11,7 @@ import ScrollToTop from "./components/scrollTotop";
 import SigninScreen from "./screens/SiginScreen";
 import RegisterScreen from "./screens/RegisterScreen";
 import ShipingAdressScreen from "./screens/ShipingAdressScreen";
+import ProfileScreen from "./screens/ProfileScreen";
 
 
 function App() {
@@ -37,6 +38,7 @@ return (
       <Route path="/register" element={<RegisterScreen />} />
       <Route path="/shiping:id" element={<ShipingAdressScreen />} />
       <Route path="/shiping" element={<ShipingAdressScreen />} />
+      <Route path="/profile" element={<ProfileScreen />} />
 
 
   </Routes>

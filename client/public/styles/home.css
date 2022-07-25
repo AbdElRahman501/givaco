@@ -618,7 +618,6 @@ header.stick-item {
     padding: 0.5rem;
     background-color: #999;
     border-radius: 25px;
-    transition: all .5s ease-in-out;
     filter: drop-shadow(-4px 10px 5px rgba(0, 0, 0, 0.5));
 
 }
@@ -887,9 +886,7 @@ header.stick-item {
 }
 
 .side-image:hover {
-    transform: scale(1.2);
-    border: 1px solid #e4e4e4;
-
+    transform: scale(1.2);  
 }
 
 
@@ -941,7 +938,6 @@ header.stick-item {
     max-width: 600px;
     min-height: 90vh;
     width: 100%;
-    transition: all 0.5s;
 }
 
 #bag .grid-item:nth-child(2) {
@@ -1135,7 +1131,7 @@ header.stick-item {
   #signin h1{
     text-align: center;
   }
-  #signin form{
+   form{
     margin-top: 7rem;
     max-width: unset;
     display: grid;
@@ -1195,6 +1191,7 @@ header.stick-item {
     stroke: brown;
     stroke-width: 2;
   }
+  .inp textarea,
   .inp input {
     -webkit-appearance: none;
     width: 100%;
@@ -1303,26 +1300,53 @@ header.stick-item {
 #shiping *{
     margin: 0;
 }
+#shiping .inp {
+    height: unset;
+    max-width: unset;
+    width: 100%;
+}
+#shiping .inp input{
+    height: 2rem;
+   
+}
+#shiping form .border{
+    display: none;
+
+}
+#shiping .inp .check {
+    top: 16px;
+}
+#shiping .inp .check path {
+    stroke: #fff;
+}
+
 #shiping hr{    
     max-width: 700px;
     border-bottom: 0;
-    margin: 0 auto;
+    margin: 5px auto;
 }
 #shiping h3{
     max-width: 700px;
     margin: 1rem auto;
     font-size: 1rem;
 }
-
 #shiping .item-body{
     background-color: var(--primary-background-color);
     border-radius: 0.5rem;
     margin: 1rem auto;
     max-width: 500px;
 }
+#shiping .promo-code{
+    background-color: var(--primary-background-color);
+    border-radius: 0.5rem;
+    max-width: 500px;
+    width: 80%;
+    padding: 0.5rem ;
+}
 #shiping img{
     margin-right:1rem ;
 }
+
 .item-body .grid-container{
     padding: 0;
 }
@@ -1345,12 +1369,18 @@ header.stick-item {
     align-items: center;
 }
 
+/* promo code */
+
+
+/* form inputs */
+
+
 
 
 /* start shiping */
 @media screen and (max-width: 550px) {
     #shiping hr{    
-    margin: 0 1rem;
+    margin: 5px 1rem;
     }
     #shiping h3{
     margin: 1rem ;

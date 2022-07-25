@@ -1,10 +1,14 @@
-import React from "react"
+import React, { useState } from "react"
 import { useSelector } from "react-redux";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import CheckoutSteps from "../components/CheckoutSteps"
-import LoadingBox from "../components/LoadingBox";
 
 export default function ShipingAdressScreen() {
+    const [ promoCode , setPromoCode] = useState()
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+
+
     // for navigat
     let navigate = useNavigate();
     // for adding single item
@@ -24,14 +28,27 @@ export default function ShipingAdressScreen() {
 
     const cart = useSelector((state) => state.cart);
     const { cartItems } = cart;
-    // for who skioed signin
+    // for who skiped signin
     const userSignin = useSelector((state) => state.userSignin);
     const {userInfo} = userSignin
+
+
+
+
+
+    function addPromoCode(e) {
+        e.preventDefault();
+        console.log(promoCode);
+    };
+
+    function submitHandler(e) {
+        e.preventDefault();
+    };
 
     return (
         <section id="shiping">
             <div className="grid-container go-back">
-                <button className='go-back ancher ' onClick={() => navigate(-2)}>
+                <button className='go-back ancher ' onClick={() => userInfo?navigate(-2):navigate(-1)}>
                     <span className="in-top-page "><img className='icon revers' src='/images/icons/eva_arrow-back-outline.png' alt="icon" />Checkout</span>
                 </button>
             </div>
@@ -97,18 +114,70 @@ export default function ShipingAdressScreen() {
             <hr />
             <h3>Promo Code</h3>
 
-            <div className="grid-container item-body" >
-                <div className="grid-container ">
-                    <form><input type="text" placeholder="Enter Promo Code"></input></form>
+            <form onSubmit={addPromoCode} className="grid-container item-body" style={{ backgroundColor: "unset",padding:"0"}} >
+                <div  className="grid-container promo-code ">
+                    <label htmlFor="inp" className="inp">
+                        <input type="text"
+                        id="Promo code"
+                        pattern=".{6,}"
+                        placeholder="Promo Code"
+                        required
+                        title="Promo Codes is more than 6 digits"
+                        onChange={(e) => setPromoCode(e.target.value)} /><svg style={{ width: "280px", height: "30px", viewBox: "0 0 280 18" }} className="border">
+                        <path d="M0,12 L223.166144,12 C217.241379,12 217.899687,12 225.141066,12 C236.003135,12 241.9279,12 249.827586,12 C257.727273,12 264.639498,12 274.514107,12 C281.097179,12 281.755486,12 276.489028,12"></path>
+                    </svg>
+                    <svg style={{ width: "14px", height: "12px", viewBox: "0 0 14 12" }} className="check">
+                        <path d="M1 7 5.5 11 L13 1"></path>
+                    </svg>
+                    </label>
+                    
                 </div>
-                <button className="ancher"><img className='big-icon revers' src='/images/icons/plus-circle.png' alt="icon" /></button>
-            </div>
-            <form>
-
+                <button className="ancher" type="submit" ><img className='big-icon revers' src='/images/icons/plus-circle.png' alt="icon" /></button>
             </form>
 
+{/* starting thr forms */}
+                <div className="grid-container item-body" >
+                    <form onSubmit={submitHandler} className="inp">
 
 
+                    <label htmlFor="inp" className="inp">
+                    <input type="name" id="First-Name" placeholder="Alberto" required />
+                    <svg style={{ width: "280px", height: "30px", viewBox: "0 0 280 18" }} className="border">
+                    <path d="M0,12 L223.166144,12 C217.241379,12 217.899687,12 225.141066,12 C236.003135,12 241.9279,12 249.827586,12 C257.727273,12 264.639498,12 274.514107,12 C281.097179,12 281.755486,12 276.489028,12">
+                    </path></svg>
+                    <svg style={{ width: "14px", height: "12px", viewBox: "0 0 14 12" }} className="check"><path d="M1 7 5.5 11 L13 1"></path></svg>
+                    </label> 
+                    <hr />
+                    <label htmlFor="inp" className="inp">
+                    <input type="name" id="last-Name" placeholder="denaro"  required />
+                    <svg style={{ width: "280px", height: "30px", viewBox: "0 0 280 18" }} className="border">
+                    <path d="M0,12 L223.166144,12 C217.241379,12 217.899687,12 225.141066,12 C236.003135,12 241.9279,12 249.827586,12 C257.727273,12 264.639498,12 274.514107,12 C281.097179,12 281.755486,12 276.489028,12">
+                    </path></svg>
+                    <svg style={{ width: "14px", height: "12px", viewBox: "0 0 14 12" }} className="check"><path d="M1 7 5.5 11 L13 1"></path></svg>
+                    </label>
+                    <hr />
+                    <label htmlFor="inp" className="inp">
+                    <input type="number" id="phonenumber" placeholder="01 --- --- ---" required pattern=".{11,}" title=" you phone number dosent correct"/>
+                    <svg style={{ width: "280px", height: "30px", viewBox: "0 0 280 18" }} className="border">
+                    <path d="M0,12 L223.166144,12 C217.241379,12 217.899687,12 225.141066,12 C236.003135,12 241.9279,12 249.827586,12 C257.727273,12 264.639498,12 274.514107,12 C281.097179,12 281.755486,12 276.489028,12">
+                    </path></svg>
+                    <svg style={{ width: "14px", height: "12px", viewBox: "0 0 14 12" }} className="check"><path d="M1 7 5.5 11 L13 1"></path></svg>
+                    </label>
+                    <hr />
+                    <label htmlFor="inp" className="inp">
+                    <textarea type="text" id="notes" placeholder="order notes (optional)"  rows="5"/>
+                    <svg style={{ width: "280px", height: "30px", viewBox: "0 0 280 18" }} className="border">
+                    <path d="M0,12 L223.166144,12 C217.241379,12 217.899687,12 225.141066,12 C236.003135,12 241.9279,12 249.827586,12 C257.727273,12 264.639498,12 274.514107,12 C281.097179,12 281.755486,12 276.489028,12">
+                    </path></svg>
+                    <svg style={{ width: "14px", height: "12px", viewBox: "0 0 14 12" }} className="check"><path d="M1 7 5.5 11 L13 1"></path></svg>
+                    </label>
+
+
+
+
+               </form>
+            </div>
+            
         </section>
     )
 }

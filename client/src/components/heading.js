@@ -55,7 +55,9 @@ function Header(props) {
                     {isTogled ?
                         <div className="search-bar">
                             <input placeholder="Enter Post name" onChange={event => setQuery(event.target.value)} />
-                            {loading ? (<LoadingBox />) : error ? (<MessageBox variant="danger">{error}</MessageBox>) : (
+                            {loading ? <div className="grid-container item-body">
+                                <i className="fa fa-spinner fa-spin" />
+                            </div> : error ? (<MessageBox variant="danger">{error}</MessageBox>) : (
                                 <ul>
                                     {products.filter(post => (query === ''
                                         ? ""
@@ -84,13 +86,14 @@ function Header(props) {
                     {
                         userInfo ? (
                             <div className="dropdown">
-                                <Link to={"#"} className="dropbtn"><img className="icon profile-active" src="/images/icons/userfill.png" alt="" />{isTogled ? userInfo.name : ""}</Link>
+                                <Link to="#" className="dropbtn" ><img className="icon profile-active" src="/images/icons/userfill.png" alt="" />{isTogled ? "profile" : ""}</Link>
                                 <div className="dropdown-content">
+                                    <Link to="/profile" onClick={() => { setTogled(false) }} > {userInfo.name} </Link>
                                     <a href="/" onClick={signoutHandler} className="signout" > signout</a>
                                 </div>
                             </div>
                         )
-                            : <Link to="/signin" onClick={() => { setTogled(false) }}>
+                            : <Link to="/signin?redirect=profile" onClick={() => { setTogled(false) }}>
                                 <img className="icon" src={isSlected === "/signin" ? "/images/icons/userfill.png" : "/images/icons/profile.png"} alt="" />
                                 {isTogled ? "Profile" : ""}
                             </Link>
